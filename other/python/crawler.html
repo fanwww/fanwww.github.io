@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Python 爬虫入门 | SuperFan</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.07d62d16.css" as="style"><link rel="preload" href="/assets/js/app.3429dec9.js" as="script"><link rel="preload" href="/assets/js/2.dec91dee.js" as="script"><link rel="preload" href="/assets/js/51.7c8fed7d.js" as="script"><link rel="prefetch" href="/assets/js/10.6c250b26.js"><link rel="prefetch" href="/assets/js/11.02223820.js"><link rel="prefetch" href="/assets/js/12.e8cb9f18.js"><link rel="prefetch" href="/assets/js/13.9c82509b.js"><link rel="prefetch" href="/assets/js/14.d7f65393.js"><link rel="prefetch" href="/assets/js/15.88e7598d.js"><link rel="prefetch" href="/assets/js/16.980326d9.js"><link rel="prefetch" href="/assets/js/17.ca813a50.js"><link rel="prefetch" href="/assets/js/18.0ba9c8c9.js"><link rel="prefetch" href="/assets/js/19.41a25106.js"><link rel="prefetch" href="/assets/js/20.393ecdc5.js"><link rel="prefetch" href="/assets/js/21.fab9eb33.js"><link rel="prefetch" href="/assets/js/22.aebf2b3e.js"><link rel="prefetch" href="/assets/js/23.bb84eb73.js"><link rel="prefetch" href="/assets/js/24.97ff8365.js"><link rel="prefetch" href="/assets/js/25.d952a0c6.js"><link rel="prefetch" href="/assets/js/26.6d822414.js"><link rel="prefetch" href="/assets/js/27.6e46fcd5.js"><link rel="prefetch" href="/assets/js/28.8b68a979.js"><link rel="prefetch" href="/assets/js/29.d33453c6.js"><link rel="prefetch" href="/assets/js/3.ebae9d1e.js"><link rel="prefetch" href="/assets/js/30.615eef3a.js"><link rel="prefetch" href="/assets/js/31.e8b985a5.js"><link rel="prefetch" href="/assets/js/32.d5e2b064.js"><link rel="prefetch" href="/assets/js/33.dd89edb1.js"><link rel="prefetch" href="/assets/js/34.515595ce.js"><link rel="prefetch" href="/assets/js/35.0e0a9d22.js"><link rel="prefetch" href="/assets/js/36.291c1cb0.js"><link rel="prefetch" href="/assets/js/37.b8662e9c.js"><link rel="prefetch" href="/assets/js/38.a140df3f.js"><link rel="prefetch" href="/assets/js/39.13703daf.js"><link rel="prefetch" href="/assets/js/4.267d7239.js"><link rel="prefetch" href="/assets/js/40.b9449bb0.js"><link rel="prefetch" href="/assets/js/41.c03575bd.js"><link rel="prefetch" href="/assets/js/42.1a53c279.js"><link rel="prefetch" href="/assets/js/43.a66170c5.js"><link rel="prefetch" href="/assets/js/44.2348e512.js"><link rel="prefetch" href="/assets/js/45.ee45492d.js"><link rel="prefetch" href="/assets/js/46.809e5f26.js"><link rel="prefetch" href="/assets/js/47.6e58ebe8.js"><link rel="prefetch" href="/assets/js/48.b345cb51.js"><link rel="prefetch" href="/assets/js/49.2f2dd0e3.js"><link rel="prefetch" href="/assets/js/5.468c5957.js"><link rel="prefetch" href="/assets/js/50.70bfd4d6.js"><link rel="prefetch" href="/assets/js/52.cfa2ec41.js"><link rel="prefetch" href="/assets/js/53.c58f6502.js"><link rel="prefetch" href="/assets/js/54.35cf058a.js"><link rel="prefetch" href="/assets/js/55.6e2b7edd.js"><link rel="prefetch" href="/assets/js/6.d54ce1d5.js"><link rel="prefetch" href="/assets/js/7.e8f4001b.js"><link rel="prefetch" href="/assets/js/8.13e2a7e4.js"><link rel="prefetch" href="/assets/js/9.f9fbc6e0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.07d62d16.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="SuperFan" class="logo"> <span class="site-name can-hide">SuperFan</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/表单属性.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/sass/1、相关介绍.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/es6/Class.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/ajax/AJAX.html" class="nav-link">
+  AJAX
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/axios/axios基本配置.html" class="nav-link">
+  axios
+</a></li><li class="dropdown-subitem"><a href="/notes/vue/vue核心基础.html" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          移动端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/微信小程序/小程序的生命周期.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/webpack/webpack基础.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/表单属性.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/sass/1、相关介绍.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/es6/Class.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/ajax/AJAX.html" class="nav-link">
+  AJAX
+</a></li></ul></li><li class="dropdown-item"><h4>
+          框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/axios/axios基本配置.html" class="nav-link">
+  axios
+</a></li><li class="dropdown-subitem"><a href="/notes/vue/vue核心基础.html" class="nav-link">
+  Vue
+</a></li></ul></li><li class="dropdown-item"><h4>
+          移动端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/微信小程序/小程序的生命周期.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/webpack/webpack基础.html" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/other/python/crawler.html" aria-current="page" class="active sidebar-link">Python爬虫入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/python/crawler.html#获取数据" class="sidebar-link">获取数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/python/crawler.html#requests-模块" class="sidebar-link">requests 模块</a></li><li class="sidebar-sub-header"><a href="/other/python/crawler.html#response-对象常用属性-方法" class="sidebar-link">Response 对象常用属性/方法</a></li></ul></li><li class="sidebar-sub-header"><a href="/other/python/crawler.html#解析数据" class="sidebar-link">解析数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/python/crawler.html#beautifulsoup" class="sidebar-link">BeautifulSoup</a></li></ul></li><li class="sidebar-sub-header"><a href="/other/python/crawler.html#提取数据" class="sidebar-link">提取数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/python/crawler.html#beautifulsoup-对象-tag-对象" class="sidebar-link">BeautifulSoup 对象 &amp; Tag 对象</a></li></ul></li><li class="sidebar-sub-header"><a href="/other/python/crawler.html#存储数据" class="sidebar-link">存储数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/other/python/crawler.html#csv-模块" class="sidebar-link">csv 模块</a></li><li class="sidebar-sub-header"><a href="/other/python/crawler.html#openpyxl-模块" class="sidebar-link">openpyxl 模块</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="python-爬虫入门"><a href="#python-爬虫入门" class="header-anchor">#</a> Python 爬虫入门</h1> <blockquote><p>爬虫四步骤：获取数据、解析数据、提取数据、存储数据</p></blockquote> <h2 id="获取数据"><a href="#获取数据" class="header-anchor">#</a> 获取数据</h2> <h3 id="requests-模块"><a href="#requests-模块" class="header-anchor">#</a> requests 模块</h3> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">'https://c.y.qq.com/base/fcgi-bin/fcg_global_comment_h5.fcg'</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'origin'</span><span class="token punctuation">:</span><span class="token string">'https://y.qq.com'</span><span class="token punctuation">,</span>
+  <span class="token comment"># 请求来源</span>
+  <span class="token string">'referer'</span><span class="token punctuation">:</span><span class="token string">'https://y.qq.com/n/yqq/song/004Z8Ihr0JIu5s.html'</span><span class="token punctuation">,</span>
+  <span class="token comment"># 请求来源，携带的信息比“origin”更丰富</span>
+  <span class="token string">'user-agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'</span><span class="token punctuation">,</span>
+  <span class="token comment"># 标记了请求从什么设备，什么浏览器上发出</span>
+  <span class="token punctuation">}</span>
+<span class="token comment"># 伪装请求头</span>
+
+<span class="token comment"># 请求歌曲评论的url参数的前面部分</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  params <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'g_tk'</span><span class="token punctuation">:</span><span class="token string">'5381'</span><span class="token punctuation">,</span>
+  <span class="token string">'needmusiccrit'</span><span class="token punctuation">:</span><span class="token string">'0'</span><span class="token punctuation">,</span>
+  <span class="token string">'pagenum'</span><span class="token punctuation">:</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">'pagesize'</span><span class="token punctuation">:</span><span class="token string">'15'</span><span class="token punctuation">,</span>
+  <span class="token string">'lasthotcommentid'</span><span class="token punctuation">:</span><span class="token string">'song_102065756_3202544866_44059185'</span><span class="token punctuation">,</span>
+  <span class="token string">'domain'</span><span class="token punctuation">:</span><span class="token string">'qq.com'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment"># 将参数封装为字典</span>
+  res_comments <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>params<span class="token operator">=</span>params<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+  <span class="token comment"># 调用get方法，下载这个字典</span>
+  json_comments <span class="token operator">=</span> res_comments<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  list_comments <span class="token operator">=</span> json_comments<span class="token punctuation">[</span><span class="token string">'comment'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'commentlist'</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> comment <span class="token keyword">in</span> list_comments<span class="token punctuation">:</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span>comment<span class="token punctuation">[</span><span class="token string">'rootcommentcontent'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-----------------------------------'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 好像最好关闭，否则会保持多个连接，容易被封</span>
+res_comments<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="response-对象常用属性-方法"><a href="#response-对象常用属性-方法" class="header-anchor">#</a> Response 对象常用属性/方法</h3> <table><thead><tr><th>属性方法</th> <th>含义</th></tr></thead> <tbody><tr><td>res.status_code</td> <td>响应状态码</td></tr> <tr><td>res.content</td> <td>转为二进制数据，用于图像音视频</td></tr> <tr><td>res.text</td> <td>字符串数据</td></tr> <tr><td>res.encoding</td> <td>指定编码方式 utf-8，gbk</td></tr> <tr><td>res.json()</td> <td>将 response 转为字典/列表</td></tr></tbody></table> <h2 id="解析数据"><a href="#解析数据" class="header-anchor">#</a> 解析数据</h2> <p>解析数据让 Python 看得明白 HTML</p> <h3 id="beautifulsoup"><a href="#beautifulsoup" class="header-anchor">#</a> BeautifulSoup</h3> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://localprod.pandateacher.com/python-manuscript/crawler-html/spider-men5.0.html'</span><span class="token punctuation">)</span>
+<span class="token comment"># 把网页解析为BeautifulSoup对象，第2个参数是解析器</span>
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">,</span><span class="token string">'html.parser'</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="提取数据"><a href="#提取数据" class="header-anchor">#</a> 提取数据</h2> <h3 id="beautifulsoup-对象-tag-对象"><a href="#beautifulsoup-对象-tag-对象" class="header-anchor">#</a> BeautifulSoup 对象 &amp; Tag 对象</h3> <p>BeautifulSoup 对象</p> <table><thead><tr><th>方法</th> <th>作用</th> <th>语法</th> <th>示例</th></tr></thead> <tbody><tr><td>find()</td> <td>提取满足要求的首个数据</td> <td>BeautifulSoup 对象.find(标签,属性)</td> <td>soup.find('div',class_='books')</td></tr> <tr><td>find_all()</td> <td>提取满足要求的所有数据</td> <td>BeautifulSoup 对象.find_all(标签,属性)</td> <td>soup.find_all('div',class_='books')</td></tr></tbody></table> <p>Tag 对象</p> <table><thead><tr><th>属性/方法</th> <th>作用</th></tr></thead> <tbody><tr><td>Tag.find()和 Tag.find_all()</td> <td>提取 Tag 中的 Tag</td></tr> <tr><td>Tag.text</td> <td>提取 Tag 中的文字</td></tr> <tr><td>Tag['属性名']</td> <td>提取 Tag 中这个属性的值</td></tr></tbody></table> <div class="language-python line-numbers-mode"><pre class="language-python"><code><span class="token comment"># 返回一个Tag类对象</span>
+item <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+<span class="token comment"># 返回一个ResultSet类的对象。</span>
+<span class="token comment"># 其实是Tag对象以列表结构储存了起来</span>
+<span class="token comment"># 可以把它当做列表来处理</span>
+items <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="存储数据"><a href="#存储数据" class="header-anchor">#</a> 存储数据</h2> <h3 id="csv-模块"><a href="#csv-模块" class="header-anchor">#</a> csv 模块</h3> <table><thead><tr><th></th> <th></th> <th>b</th> <th>+</th> <th>b+</th></tr></thead> <tbody><tr><td>r(read,读)</td> <td>r 只读，指针在开头，文件不存在则报错</td> <td>rb 二进制只读</td> <td>r+读写</td> <td>rb+二进制读写</td></tr> <tr><td>w(write,写)</td> <td>w 只写，文件不存在则新建，存在则覆盖</td> <td>wb 二进制只写</td> <td>w+读写</td> <td>wb+二进制读写</td></tr> <tr><td>a(append,追加)</td> <td>a 追加，文件存在指针放在末尾，不存在则新建</td> <td>ab 二进制追加</td> <td>a+追加且可读</td> <td>ab+二进制追加且可读</td></tr></tbody></table> <h4 id="写文件"><a href="#写文件" class="header-anchor">#</a> 写文件</h4> <div class="language-py line-numbers-mode"><pre class="language-py"><code><span class="token keyword">import</span> csv
+
+csv_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'demo.csv'</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">,</span>newline<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+<span class="token comment"># 创建csv文件，文件名“demo.csv”、写入模式“w”、</span>
+<span class="token comment"># newline='',避免表格的行与行之间出现空白行</span>
+<span class="token comment"># encoding='utf-8'。</span>
+
+writer <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>csv_file<span class="token punctuation">)</span>
+<span class="token comment"># 用csv.writer()函数创建一个writer对象</span>
+writer<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'电影'</span><span class="token punctuation">,</span><span class="token string">'豆瓣评分'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+writer<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'银河护卫队'</span><span class="token punctuation">,</span><span class="token string">'8.0'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+csv_file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h4 id="读文件"><a href="#读文件" class="header-anchor">#</a> 读文件</h4> <div class="language-py line-numbers-mode"><pre class="language-py"><code><span class="token keyword">import</span> csv
+csv_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'demo.csv'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">,</span>newline<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+reader <span class="token operator">=</span> csv<span class="token punctuation">.</span>reader<span class="token punctuation">(</span>csv_file<span class="token punctuation">)</span>
+<span class="token keyword">for</span> row <span class="token keyword">in</span> reader<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="openpyxl-模块"><a href="#openpyxl-模块" class="header-anchor">#</a> openpyxl 模块</h3> <h4 id="写文件-2"><a href="#写文件-2" class="header-anchor">#</a> 写文件</h4> <div class="language-py line-numbers-mode"><pre class="language-py"><code><span class="token keyword">import</span> openpyxl
+
+wb <span class="token operator">=</span> openpyxl<span class="token punctuation">.</span>Workbook<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 创建新的workbook（工作簿）对象，就是创建新的空的Excel文件</span>
+
+sheet <span class="token operator">=</span> wb<span class="token punctuation">.</span>active
+<span class="token comment"># wb.active就是获取这个工作簿的活动表，通常就是第一个工作表。</span>
+sheet<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">'new title'</span>
+<span class="token comment"># 给工作表重命名</span>
+
+sheet<span class="token punctuation">[</span><span class="token string">'A1'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'漫威宇宙'</span>
+row <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'美国队长'</span><span class="token punctuation">,</span><span class="token string">'钢铁侠'</span><span class="token punctuation">,</span><span class="token string">'蜘蛛侠'</span><span class="token punctuation">]</span>
+sheet<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">)</span>
+
+rows <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'美国队长'</span><span class="token punctuation">,</span><span class="token string">'钢铁侠'</span><span class="token punctuation">,</span><span class="token string">'蜘蛛侠'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'是'</span><span class="token punctuation">,</span><span class="token string">'漫威'</span><span class="token punctuation">,</span><span class="token string">'宇宙'</span><span class="token punctuation">,</span> <span class="token string">'经典'</span><span class="token punctuation">,</span><span class="token string">'人物'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token comment">#先把要写入的多行内容写成列表，再放进大列表里，赋值给rows。</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> rows<span class="token punctuation">:</span>
+    sheet<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+wb<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'Marvel.xlsx'</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h4 id="读文件-2"><a href="#读文件-2" class="header-anchor">#</a> 读文件</h4> <div class="language-py line-numbers-mode"><pre class="language-py"><code>wb <span class="token operator">=</span> openpyxl<span class="token punctuation">.</span>load_workbook<span class="token punctuation">(</span><span class="token string">'Marvel.xlsx'</span><span class="token punctuation">)</span>
+sheet <span class="token operator">=</span> wb<span class="token punctuation">[</span><span class="token string">'new title'</span><span class="token punctuation">]</span>
+
+sheetname <span class="token operator">=</span> wb<span class="token punctuation">.</span>sheetnames
+<span class="token keyword">print</span><span class="token punctuation">(</span>sheetname<span class="token punctuation">)</span>
+
+A1_cell <span class="token operator">=</span> sheet<span class="token punctuation">[</span><span class="token string">'A1'</span><span class="token punctuation">]</span>
+A1_value <span class="token operator">=</span> A1_cell<span class="token punctuation">.</span>value
+<span class="token keyword">print</span><span class="token punctuation">(</span>A1_value<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/15/2022, 11:47:59 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3429dec9.js" defer></script><script src="/assets/js/2.dec91dee.js" defer></script><script src="/assets/js/51.7c8fed7d.js" defer></script>
+  </body>
+</html>
