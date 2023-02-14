@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rollup构建TS项目 &amp; webpack构建TS项目 | SuperFan</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.b28fe3e0.css" as="style"><link rel="preload" href="/assets/js/app.13992e3b.js" as="script"><link rel="preload" href="/assets/js/3.388af1c5.js" as="script"><link rel="preload" href="/assets/js/7.ccd64634.js" as="script"><link rel="prefetch" href="/assets/js/10.a2c8b213.js"><link rel="prefetch" href="/assets/js/100.87b19e83.js"><link rel="prefetch" href="/assets/js/101.9c445042.js"><link rel="prefetch" href="/assets/js/102.56b91ab9.js"><link rel="prefetch" href="/assets/js/103.8107aa17.js"><link rel="prefetch" href="/assets/js/104.bb6b1483.js"><link rel="prefetch" href="/assets/js/105.b7732efa.js"><link rel="prefetch" href="/assets/js/106.9699cc29.js"><link rel="prefetch" href="/assets/js/107.6ef815a1.js"><link rel="prefetch" href="/assets/js/108.83d3ec24.js"><link rel="prefetch" href="/assets/js/11.8dcacf9b.js"><link rel="prefetch" href="/assets/js/12.704b7211.js"><link rel="prefetch" href="/assets/js/13.3652826d.js"><link rel="prefetch" href="/assets/js/14.1bb5d988.js"><link rel="prefetch" href="/assets/js/15.7f5e5000.js"><link rel="prefetch" href="/assets/js/16.d8fe454e.js"><link rel="prefetch" href="/assets/js/17.3bca16d7.js"><link rel="prefetch" href="/assets/js/18.5bd51cd8.js"><link rel="prefetch" href="/assets/js/19.3e578a16.js"><link rel="prefetch" href="/assets/js/2.4f533cd7.js"><link rel="prefetch" href="/assets/js/20.8e1d45c2.js"><link rel="prefetch" href="/assets/js/21.fa658cc2.js"><link rel="prefetch" href="/assets/js/22.1f402cfb.js"><link rel="prefetch" href="/assets/js/23.625832af.js"><link rel="prefetch" href="/assets/js/24.e2712bd4.js"><link rel="prefetch" href="/assets/js/25.2a702711.js"><link rel="prefetch" href="/assets/js/26.e7bedeed.js"><link rel="prefetch" href="/assets/js/27.79cb8880.js"><link rel="prefetch" href="/assets/js/28.76ac1bc9.js"><link rel="prefetch" href="/assets/js/29.5dff4e5a.js"><link rel="prefetch" href="/assets/js/30.8b9fc1c4.js"><link rel="prefetch" href="/assets/js/31.a9cff1ec.js"><link rel="prefetch" href="/assets/js/32.5bbb5078.js"><link rel="prefetch" href="/assets/js/33.f52512be.js"><link rel="prefetch" href="/assets/js/34.f867ceea.js"><link rel="prefetch" href="/assets/js/35.f93db42a.js"><link rel="prefetch" href="/assets/js/36.29744885.js"><link rel="prefetch" href="/assets/js/37.d619cb4f.js"><link rel="prefetch" href="/assets/js/38.63bcf1fd.js"><link rel="prefetch" href="/assets/js/39.3a45fad8.js"><link rel="prefetch" href="/assets/js/4.77360881.js"><link rel="prefetch" href="/assets/js/40.ebe2099a.js"><link rel="prefetch" href="/assets/js/41.102f4ed1.js"><link rel="prefetch" href="/assets/js/42.7117b86a.js"><link rel="prefetch" href="/assets/js/43.a970eae6.js"><link rel="prefetch" href="/assets/js/44.4a74ccf1.js"><link rel="prefetch" href="/assets/js/45.0a26b3b0.js"><link rel="prefetch" href="/assets/js/46.9825e1da.js"><link rel="prefetch" href="/assets/js/47.47c7dbeb.js"><link rel="prefetch" href="/assets/js/48.a5be617f.js"><link rel="prefetch" href="/assets/js/49.5b95eb29.js"><link rel="prefetch" href="/assets/js/5.ca564742.js"><link rel="prefetch" href="/assets/js/50.95fad945.js"><link rel="prefetch" href="/assets/js/51.d24f47a0.js"><link rel="prefetch" href="/assets/js/52.0de8214f.js"><link rel="prefetch" href="/assets/js/53.e133f12d.js"><link rel="prefetch" href="/assets/js/54.ad4fb0b1.js"><link rel="prefetch" href="/assets/js/55.32a72431.js"><link rel="prefetch" href="/assets/js/56.12689f10.js"><link rel="prefetch" href="/assets/js/57.2863becb.js"><link rel="prefetch" href="/assets/js/58.9decc151.js"><link rel="prefetch" href="/assets/js/59.f1c27378.js"><link rel="prefetch" href="/assets/js/6.9b404325.js"><link rel="prefetch" href="/assets/js/60.9850bad8.js"><link rel="prefetch" href="/assets/js/61.dc0e4558.js"><link rel="prefetch" href="/assets/js/62.92074996.js"><link rel="prefetch" href="/assets/js/63.f7ad59d9.js"><link rel="prefetch" href="/assets/js/64.a95e9b9e.js"><link rel="prefetch" href="/assets/js/65.bec6b166.js"><link rel="prefetch" href="/assets/js/66.249f90fe.js"><link rel="prefetch" href="/assets/js/67.ed5cdf6d.js"><link rel="prefetch" href="/assets/js/68.a97ee492.js"><link rel="prefetch" href="/assets/js/69.b0a1cedf.js"><link rel="prefetch" href="/assets/js/70.8ec53658.js"><link rel="prefetch" href="/assets/js/71.8aa27851.js"><link rel="prefetch" href="/assets/js/72.deee3dbe.js"><link rel="prefetch" href="/assets/js/73.68ad2d92.js"><link rel="prefetch" href="/assets/js/74.8225834e.js"><link rel="prefetch" href="/assets/js/75.723b5280.js"><link rel="prefetch" href="/assets/js/76.7b830b75.js"><link rel="prefetch" href="/assets/js/77.ebb7e6f4.js"><link rel="prefetch" href="/assets/js/78.ec4683d7.js"><link rel="prefetch" href="/assets/js/79.5812ca18.js"><link rel="prefetch" href="/assets/js/8.b694ab02.js"><link rel="prefetch" href="/assets/js/80.4ed23c8e.js"><link rel="prefetch" href="/assets/js/81.8e9a8b28.js"><link rel="prefetch" href="/assets/js/82.9b3797f6.js"><link rel="prefetch" href="/assets/js/83.56db35f9.js"><link rel="prefetch" href="/assets/js/84.dfd672e3.js"><link rel="prefetch" href="/assets/js/85.4f5c71fa.js"><link rel="prefetch" href="/assets/js/86.71da2c92.js"><link rel="prefetch" href="/assets/js/87.c7fc4158.js"><link rel="prefetch" href="/assets/js/88.d88e29e3.js"><link rel="prefetch" href="/assets/js/89.50626a13.js"><link rel="prefetch" href="/assets/js/9.ea2857d4.js"><link rel="prefetch" href="/assets/js/90.9569a814.js"><link rel="prefetch" href="/assets/js/91.b3fc8641.js"><link rel="prefetch" href="/assets/js/92.90a8e499.js"><link rel="prefetch" href="/assets/js/93.5286e2a8.js"><link rel="prefetch" href="/assets/js/94.33ee75da.js"><link rel="prefetch" href="/assets/js/95.2c4966e0.js"><link rel="prefetch" href="/assets/js/96.ecc711db.js"><link rel="prefetch" href="/assets/js/97.be4ba4f9.js"><link rel="prefetch" href="/assets/js/98.e8a250e6.js"><link rel="prefetch" href="/assets/js/99.2cb509e8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b28fe3e0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="SuperFan" class="logo"> <span class="site-name can-hide">SuperFan</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" aria-current="page" class="active sidebar-link">Rollup &amp; webpack构建TS项目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#_1-rollup构建ts项目" class="sidebar-link">1.Rollup构建TS项目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#webpack-rollup打包对比" class="sidebar-link">webpack rollup打包对比</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#配置json文件" class="sidebar-link">配置json文件</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#配置rollup文件" class="sidebar-link">配置rollup文件</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#配置tsconfig-json" class="sidebar-link">配置tsconfig.json</a></li></ul></li><li class="sidebar-sub-header"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html#_2-webpack构建ts项目" class="sidebar-link">2.webpack构建TS项目</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="rollup构建ts项目-webpack构建ts项目"><a href="#rollup构建ts项目-webpack构建ts项目" class="header-anchor">#</a> Rollup构建TS项目 &amp; webpack构建TS项目</h1> <h2 id="_1-rollup构建ts项目"><a href="#_1-rollup构建ts项目" class="header-anchor">#</a> 1.Rollup构建TS项目</h2> <p>安装依赖
+1.全局安装rollup npm install rollup-g</p> <p>2.安装TypeScript   npm install typescript -D</p> <p>3.安装TypeScript 转换器 npm install rollup-plugin-typescript2 -D</p> <p>4安装代码压缩插件 npm install rollup-plugin-terser -D</p> <p>5 安装rollupweb服务 npm install rollup-plugin-serve -D</p> <p>6 安装热更新 npm install rollup-plugin-livereload -D</p> <p>7引入外部依赖 npm install rollup-plugin-node-resolve -D</p> <p>8安装配置环境变量用来区分本地和生产  npm install cross-env -D</p> <p>9替换环境变量给浏览器使用 npm install rollup-plugin-replace -D</p> <h3 id="webpack-rollup打包对比"><a href="#webpack-rollup打包对比" class="header-anchor">#</a> webpack rollup打包对比</h3> <p><img src="/assets/img/img1.0398e5be.png" alt="img1"></p> <p><img src="/assets/img/img2.dd2ad330.png" alt="img2"></p> <h3 id="配置json文件"><a href="#配置json文件" class="header-anchor">#</a> 配置json文件</h3> <p>npm init -y</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  <span class="token string-property property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;rollupTs&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross-env NODE_ENV=development  rollup -c -w&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;build&quot;</span><span class="token operator">:</span><span class="token string">&quot;cross-env NODE_ENV=produaction  rollup -c&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;keywords&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ISC&quot;</span><span class="token punctuation">,</span>
+  <span class="token string-property property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">&quot;cross-env&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.0.3&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-livereload&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.5&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-node-resolve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^5.2.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-replace&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.2.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-serve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^1.1.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-terser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.0.2&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;rollup-plugin-typescript2&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^0.31.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">&quot;typescript&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.5.5&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="配置rollup文件"><a href="#配置rollup文件" class="header-anchor">#</a> 配置rollup文件</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ts <span class="token keyword">from</span> <span class="token string">'rollup-plugin-typescript2'</span>
+<span class="token keyword">import</span> path <span class="token keyword">from</span> <span class="token string">'path'</span>
+<span class="token keyword">import</span> serve <span class="token keyword">from</span> <span class="token string">'rollup-plugin-serve'</span>
+<span class="token keyword">import</span> livereload <span class="token keyword">from</span> <span class="token string">'rollup-plugin-livereload'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> terser <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rollup-plugin-terser'</span>
+<span class="token keyword">import</span> resolve <span class="token keyword">from</span> <span class="token string">'rollup-plugin-node-resolve'</span>
+<span class="token keyword">import</span> repacle <span class="token keyword">from</span> <span class="token string">'rollup-plugin-replace'</span>
+ 
+<span class="token keyword">const</span> <span class="token function-variable function">isDev</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'development'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">input</span><span class="token operator">:</span> <span class="token string">&quot;./src/main.ts&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">file</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./lib/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">format</span><span class="token operator">:</span> <span class="token string">&quot;umd&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">sourcemap</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ 
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">ts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">terser</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token literal-property property">drop_console</span><span class="token operator">:</span> <span class="token operator">!</span><span class="token function">isDev</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">repacle</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token string-property property">'process.env.NODE_ENV'</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.ts'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">isDev</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">livereload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">isDev</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">serve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">openPage</span><span class="token operator">:</span> <span class="token string">&quot;/public/index.html&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><h3 id="配置tsconfig-json"><a href="#配置tsconfig-json" class="header-anchor">#</a> 配置tsconfig.json</h3> <p>tsc --init</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;compilerOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* Visit https://aka.ms/tsconfig.json to read more about this file */</span>
+ 
+    <span class="token comment">/* Projects */</span>
+    <span class="token comment">// &quot;incremental&quot;: true,                              /* Enable incremental compilation */</span>
+    <span class="token comment">// &quot;composite&quot;: true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */</span>
+    <span class="token comment">// &quot;tsBuildInfoFile&quot;: &quot;./&quot;,                          /* Specify the folder for .tsbuildinfo incremental compilation files. */</span>
+    <span class="token comment">// &quot;disableSourceOfProjectReferenceRedirect&quot;: true,  /* Disable preferring source files instead of declaration files when referencing composite projects */</span>
+    <span class="token comment">// &quot;disableSolutionSearching&quot;: true,                 /* Opt a project out of multi-project reference checking when editing. */</span>
+    <span class="token comment">// &quot;disableReferencedProjectLoad&quot;: true,             /* Reduce the number of projects loaded automatically by TypeScript. */</span>
+ 
+    <span class="token comment">/* Language and Environment */</span>
+    <span class="token property">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;es5&quot;</span><span class="token punctuation">,</span>                                  <span class="token comment">/* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */</span>
+    <span class="token comment">// &quot;lib&quot;: [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */</span>
+    <span class="token comment">// &quot;jsx&quot;: &quot;preserve&quot;,                                /* Specify what JSX code is generated. */</span>
+    <span class="token comment">// &quot;experimentalDecorators&quot;: true,                   /* Enable experimental support for TC39 stage 2 draft decorators. */</span>
+    <span class="token comment">// &quot;emitDecoratorMetadata&quot;: true,                    /* Emit design-type metadata for decorated declarations in source files. */</span>
+    <span class="token comment">// &quot;jsxFactory&quot;: &quot;&quot;,                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h' */</span>
+    <span class="token comment">// &quot;jsxFragmentFactory&quot;: &quot;&quot;,                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */</span>
+    <span class="token comment">// &quot;jsxImportSource&quot;: &quot;&quot;,                            /* Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.` */</span>
+    <span class="token comment">// &quot;reactNamespace&quot;: &quot;&quot;,                             /* Specify the object invoked for `createElement`. This only applies when targeting `react` JSX emit. */</span>
+    <span class="token comment">// &quot;noLib&quot;: true,                                    /* Disable including any library files, including the default lib.d.ts. */</span>
+    <span class="token comment">// &quot;useDefineForClassFields&quot;: true,                  /* Emit ECMAScript-standard-compliant class fields. */</span>
+ 
+    <span class="token comment">/* Modules */</span>
+    <span class="token property">&quot;module&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ES2015&quot;</span><span class="token punctuation">,</span>                                <span class="token comment">/* Specify what module code is generated. */</span>
+    <span class="token comment">// &quot;rootDir&quot;: &quot;./&quot;,                                  /* Specify the root folder within your source files. */</span>
+    <span class="token comment">// &quot;moduleResolution&quot;: &quot;node&quot;,                       /* Specify how TypeScript looks up a file from a given module specifier. */</span>
+    <span class="token comment">// &quot;baseUrl&quot;: &quot;./&quot;,                                  /* Specify the base directory to resolve non-relative module names. */</span>
+    <span class="token comment">// &quot;paths&quot;: {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */</span>
+    <span class="token comment">// &quot;rootDirs&quot;: [],                                   /* Allow multiple folders to be treated as one when resolving modules. */</span>
+    <span class="token comment">// &quot;typeRoots&quot;: [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */</span>
+    <span class="token comment">// &quot;types&quot;: [],                                      /* Specify type package names to be included without being referenced in a source file. */</span>
+    <span class="token comment">// &quot;allowUmdGlobalAccess&quot;: true,                     /* Allow accessing UMD globals from modules. */</span>
+    <span class="token comment">// &quot;resolveJsonModule&quot;: true,                        /* Enable importing .json files */</span>
+    <span class="token comment">// &quot;noResolve&quot;: true,                                /* Disallow `import`s, `require`s or `&lt;reference&gt;`s from expanding the number of files TypeScript should add to a project. */</span>
+ 
+    <span class="token comment">/* JavaScript Support */</span>
+    <span class="token comment">// &quot;allowJs&quot;: true,                                  /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */</span>
+    <span class="token comment">// &quot;checkJs&quot;: true,                                  /* Enable error reporting in type-checked JavaScript files. */</span>
+    <span class="token comment">// &quot;maxNodeModuleJsDepth&quot;: 1,                        /* Specify the maximum folder depth used for checking JavaScript files from `node_modules`. Only applicable with `allowJs`. */</span>
+ 
+    <span class="token comment">/* Emit */</span>
+    <span class="token comment">// &quot;declaration&quot;: true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */</span>
+    <span class="token comment">// &quot;declarationMap&quot;: true,                           /* Create sourcemaps for d.ts files. */</span>
+    <span class="token comment">// &quot;emitDeclarationOnly&quot;: true,                      /* Only output d.ts files and not JavaScript files. */</span>
+      <span class="token property">&quot;sourceMap&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                                <span class="token comment">/* Create source map files for emitted JavaScript files. */</span>
+    <span class="token comment">// &quot;outFile&quot;: &quot;./&quot;,                                  /* Specify a file that bundles all outputs into one JavaScript file. If `declaration` is true, also designates a file that bundles all .d.ts output. */</span>
+    <span class="token comment">// &quot;outDir&quot;: &quot;./&quot;,                                   /* Specify an output folder for all emitted files. */</span>
+    <span class="token comment">// &quot;removeComments&quot;: true,                           /* Disable emitting comments. */</span>
+    <span class="token comment">// &quot;noEmit&quot;: true,                                   /* Disable emitting files from a compilation. */</span>
+    <span class="token comment">// &quot;importHelpers&quot;: true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */</span>
+    <span class="token comment">// &quot;importsNotUsedAsValues&quot;: &quot;remove&quot;,               /* Specify emit/checking behavior for imports that are only used for types */</span>
+    <span class="token comment">// &quot;downlevelIteration&quot;: true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */</span>
+    <span class="token comment">// &quot;sourceRoot&quot;: &quot;&quot;,                                 /* Specify the root path for debuggers to find the reference source code. */</span>
+    <span class="token comment">// &quot;mapRoot&quot;: &quot;&quot;,                                    /* Specify the location where debugger should locate map files instead of generated locations. */</span>
+    <span class="token comment">// &quot;inlineSourceMap&quot;: true,                          /* Include sourcemap files inside the emitted JavaScript. */</span>
+    <span class="token comment">// &quot;inlineSources&quot;: true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */</span>
+    <span class="token comment">// &quot;emitBOM&quot;: true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */</span>
+    <span class="token comment">// &quot;newLine&quot;: &quot;crlf&quot;,                                /* Set the newline character for emitting files. */</span>
+    <span class="token comment">// &quot;stripInternal&quot;: true,                            /* Disable emitting declarations that have `@internal` in their JSDoc comments. */</span>
+    <span class="token comment">// &quot;noEmitHelpers&quot;: true,                            /* Disable generating custom helper functions like `__extends` in compiled output. */</span>
+    <span class="token comment">// &quot;noEmitOnError&quot;: true,                            /* Disable emitting files if any type checking errors are reported. */</span>
+    <span class="token comment">// &quot;preserveConstEnums&quot;: true,                       /* Disable erasing `const enum` declarations in generated code. */</span>
+    <span class="token comment">// &quot;declarationDir&quot;: &quot;./&quot;,                           /* Specify the output directory for generated declaration files. */</span>
+    <span class="token comment">// &quot;preserveValueImports&quot;: true,                     /* Preserve unused imported values in the JavaScript output that would otherwise be removed. */</span>
+ 
+    <span class="token comment">/* Interop Constraints */</span>
+    <span class="token comment">// &quot;isolatedModules&quot;: true,                          /* Ensure that each file can be safely transpiled without relying on other imports. */</span>
+    <span class="token comment">// &quot;allowSyntheticDefaultImports&quot;: true,             /* Allow 'import x from y' when a module doesn't have a default export. */</span>
+    <span class="token property">&quot;esModuleInterop&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                             <span class="token comment">/* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */</span>
+    <span class="token comment">// &quot;preserveSymlinks&quot;: true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */</span>
+    <span class="token property">&quot;forceConsistentCasingInFileNames&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>            <span class="token comment">/* Ensure that casing is correct in imports. */</span>
+    <span class="token comment">/* Type Checking */</span>
+    <span class="token property">&quot;strict&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>                                      <span class="token comment">/* Enable all strict type-checking options. */</span>
+    <span class="token comment">// &quot;noImplicitAny&quot;: true,                            /* Enable error reporting for expressions and declarations with an implied `any` type.. */</span>
+    <span class="token comment">// &quot;strictNullChecks&quot;: true,                         /* When type checking, take into account `null` and `undefined`. */</span>
+    <span class="token comment">// &quot;strictFunctionTypes&quot;: true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */</span>
+    <span class="token comment">// &quot;strictBindCallApply&quot;: true,                      /* Check that the arguments for `bind`, `call`, and `apply` methods match the original function. */</span>
+    <span class="token comment">// &quot;strictPropertyInitialization&quot;: true,             /* Check for class properties that are declared but not set in the constructor. */</span>
+    <span class="token comment">// &quot;noImplicitThis&quot;: true,                           /* Enable error reporting when `this` is given the type `any`. */</span>
+    <span class="token comment">// &quot;useUnknownInCatchVariables&quot;: true,               /* Type catch clause variables as 'unknown' instead of 'any'. */</span>
+    <span class="token comment">// &quot;alwaysStrict&quot;: true,                             /* Ensure 'use strict' is always emitted. */</span>
+    <span class="token comment">// &quot;noUnusedLocals&quot;: true,                           /* Enable error reporting when a local variables aren't read. */</span>
+    <span class="token comment">// &quot;noUnusedParameters&quot;: true,                       /* Raise an error when a function parameter isn't read */</span>
+    <span class="token comment">// &quot;exactOptionalPropertyTypes&quot;: true,               /* Interpret optional property types as written, rather than adding 'undefined'. */</span>
+    <span class="token comment">// &quot;noImplicitReturns&quot;: true,                        /* Enable error reporting for codepaths that do not explicitly return in a function. */</span>
+    <span class="token comment">// &quot;noFallthroughCasesInSwitch&quot;: true,               /* Enable error reporting for fallthrough cases in switch statements. */</span>
+    <span class="token comment">// &quot;noUncheckedIndexedAccess&quot;: true,                 /* Include 'undefined' in index signature results */</span>
+    <span class="token comment">// &quot;noImplicitOverride&quot;: true,                       /* Ensure overriding members in derived classes are marked with an override modifier. */</span>
+    <span class="token comment">// &quot;noPropertyAccessFromIndexSignature&quot;: true,       /* Enforces using indexed accessors for keys declared using an indexed type */</span>
+    <span class="token comment">// &quot;allowUnusedLabels&quot;: true,                        /* Disable error reporting for unused labels. */</span>
+    <span class="token comment">// &quot;allowUnreachableCode&quot;: true,                     /* Disable error reporting for unreachable code. */</span>
+    <span class="token comment">/* Completeness */</span>
+    <span class="token comment">// &quot;skipDefaultLibCheck&quot;: true,                      /* Skip type checking .d.ts files that are included with TypeScript. */</span>
+    <span class="token property">&quot;skipLibCheck&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>                                 <span class="token comment">/* Skip type checking all .d.ts files. */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br></div></div><p>npm run dev 启动就可以尽情的玩耍了<img src="/assets/img/img3.1712452f.png" alt="img3"></p> <h2 id="_2-webpack构建ts项目"><a href="#_2-webpack构建ts项目" class="header-anchor">#</a> 2.webpack构建TS项目</h2> <p>安装依赖</p> <p>安装webpack   npm install webpack -D</p> <p>webpack4以上需要 npm install  webpack-cli -D</p> <p>编译TS  npm install ts-loader -D</p> <p>TS环境 npm install typescript -D</p> <p>热更新服务 npm install  webpack-dev-server -D</p> <p>HTML模板 npm install html-webpack-plugin -D</p> <p>配置文件</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> htmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">entry</span><span class="token operator">:</span> <span class="token string">&quot;./src/index.ts&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">&quot;development&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">stats</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">resolve</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">extensions</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.ts'</span><span class="token punctuation">,</span> <span class="token string">'.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string-property property">'@'</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.ts$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+                <span class="token literal-property property">use</span><span class="token operator">:</span> <span class="token string">&quot;ts-loader&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">devServer</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">port</span><span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token keyword">new</span> <span class="token class-name">htmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">&quot;./public/index.html&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p>目录结构</p> <p><img src="/assets/img/img4.f2b6cfb4.png" alt="img4"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/13/2023, 9:16:34 PM</span></div></footer> <!----> </main></div><div class="global-ui"><div id="goTop" class="hide-cat" data-v-bf92849a></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:270px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="270" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:270px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.13992e3b.js" defer></script><script src="/assets/js/3.388af1c5.js" defer></script><script src="/assets/js/7.ccd64634.js" defer></script>
+  </body>
+</html>

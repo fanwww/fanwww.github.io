@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebRTC（六）你不知道SDP！ | SuperFan</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.b28fe3e0.css" as="style"><link rel="preload" href="/assets/js/app.13992e3b.js" as="script"><link rel="preload" href="/assets/js/3.388af1c5.js" as="script"><link rel="preload" href="/assets/js/31.a9cff1ec.js" as="script"><link rel="prefetch" href="/assets/js/10.a2c8b213.js"><link rel="prefetch" href="/assets/js/100.87b19e83.js"><link rel="prefetch" href="/assets/js/101.9c445042.js"><link rel="prefetch" href="/assets/js/102.56b91ab9.js"><link rel="prefetch" href="/assets/js/103.8107aa17.js"><link rel="prefetch" href="/assets/js/104.bb6b1483.js"><link rel="prefetch" href="/assets/js/105.b7732efa.js"><link rel="prefetch" href="/assets/js/106.9699cc29.js"><link rel="prefetch" href="/assets/js/107.6ef815a1.js"><link rel="prefetch" href="/assets/js/108.83d3ec24.js"><link rel="prefetch" href="/assets/js/11.8dcacf9b.js"><link rel="prefetch" href="/assets/js/12.704b7211.js"><link rel="prefetch" href="/assets/js/13.3652826d.js"><link rel="prefetch" href="/assets/js/14.1bb5d988.js"><link rel="prefetch" href="/assets/js/15.7f5e5000.js"><link rel="prefetch" href="/assets/js/16.d8fe454e.js"><link rel="prefetch" href="/assets/js/17.3bca16d7.js"><link rel="prefetch" href="/assets/js/18.5bd51cd8.js"><link rel="prefetch" href="/assets/js/19.3e578a16.js"><link rel="prefetch" href="/assets/js/2.4f533cd7.js"><link rel="prefetch" href="/assets/js/20.8e1d45c2.js"><link rel="prefetch" href="/assets/js/21.fa658cc2.js"><link rel="prefetch" href="/assets/js/22.1f402cfb.js"><link rel="prefetch" href="/assets/js/23.625832af.js"><link rel="prefetch" href="/assets/js/24.e2712bd4.js"><link rel="prefetch" href="/assets/js/25.2a702711.js"><link rel="prefetch" href="/assets/js/26.e7bedeed.js"><link rel="prefetch" href="/assets/js/27.79cb8880.js"><link rel="prefetch" href="/assets/js/28.76ac1bc9.js"><link rel="prefetch" href="/assets/js/29.5dff4e5a.js"><link rel="prefetch" href="/assets/js/30.8b9fc1c4.js"><link rel="prefetch" href="/assets/js/32.5bbb5078.js"><link rel="prefetch" href="/assets/js/33.f52512be.js"><link rel="prefetch" href="/assets/js/34.f867ceea.js"><link rel="prefetch" href="/assets/js/35.f93db42a.js"><link rel="prefetch" href="/assets/js/36.29744885.js"><link rel="prefetch" href="/assets/js/37.d619cb4f.js"><link rel="prefetch" href="/assets/js/38.63bcf1fd.js"><link rel="prefetch" href="/assets/js/39.3a45fad8.js"><link rel="prefetch" href="/assets/js/4.77360881.js"><link rel="prefetch" href="/assets/js/40.ebe2099a.js"><link rel="prefetch" href="/assets/js/41.102f4ed1.js"><link rel="prefetch" href="/assets/js/42.7117b86a.js"><link rel="prefetch" href="/assets/js/43.a970eae6.js"><link rel="prefetch" href="/assets/js/44.4a74ccf1.js"><link rel="prefetch" href="/assets/js/45.0a26b3b0.js"><link rel="prefetch" href="/assets/js/46.9825e1da.js"><link rel="prefetch" href="/assets/js/47.47c7dbeb.js"><link rel="prefetch" href="/assets/js/48.a5be617f.js"><link rel="prefetch" href="/assets/js/49.5b95eb29.js"><link rel="prefetch" href="/assets/js/5.ca564742.js"><link rel="prefetch" href="/assets/js/50.95fad945.js"><link rel="prefetch" href="/assets/js/51.d24f47a0.js"><link rel="prefetch" href="/assets/js/52.0de8214f.js"><link rel="prefetch" href="/assets/js/53.e133f12d.js"><link rel="prefetch" href="/assets/js/54.ad4fb0b1.js"><link rel="prefetch" href="/assets/js/55.32a72431.js"><link rel="prefetch" href="/assets/js/56.12689f10.js"><link rel="prefetch" href="/assets/js/57.2863becb.js"><link rel="prefetch" href="/assets/js/58.9decc151.js"><link rel="prefetch" href="/assets/js/59.f1c27378.js"><link rel="prefetch" href="/assets/js/6.9b404325.js"><link rel="prefetch" href="/assets/js/60.9850bad8.js"><link rel="prefetch" href="/assets/js/61.dc0e4558.js"><link rel="prefetch" href="/assets/js/62.92074996.js"><link rel="prefetch" href="/assets/js/63.f7ad59d9.js"><link rel="prefetch" href="/assets/js/64.a95e9b9e.js"><link rel="prefetch" href="/assets/js/65.bec6b166.js"><link rel="prefetch" href="/assets/js/66.249f90fe.js"><link rel="prefetch" href="/assets/js/67.ed5cdf6d.js"><link rel="prefetch" href="/assets/js/68.a97ee492.js"><link rel="prefetch" href="/assets/js/69.b0a1cedf.js"><link rel="prefetch" href="/assets/js/7.ccd64634.js"><link rel="prefetch" href="/assets/js/70.8ec53658.js"><link rel="prefetch" href="/assets/js/71.8aa27851.js"><link rel="prefetch" href="/assets/js/72.deee3dbe.js"><link rel="prefetch" href="/assets/js/73.68ad2d92.js"><link rel="prefetch" href="/assets/js/74.8225834e.js"><link rel="prefetch" href="/assets/js/75.723b5280.js"><link rel="prefetch" href="/assets/js/76.7b830b75.js"><link rel="prefetch" href="/assets/js/77.ebb7e6f4.js"><link rel="prefetch" href="/assets/js/78.ec4683d7.js"><link rel="prefetch" href="/assets/js/79.5812ca18.js"><link rel="prefetch" href="/assets/js/8.b694ab02.js"><link rel="prefetch" href="/assets/js/80.4ed23c8e.js"><link rel="prefetch" href="/assets/js/81.8e9a8b28.js"><link rel="prefetch" href="/assets/js/82.9b3797f6.js"><link rel="prefetch" href="/assets/js/83.56db35f9.js"><link rel="prefetch" href="/assets/js/84.dfd672e3.js"><link rel="prefetch" href="/assets/js/85.4f5c71fa.js"><link rel="prefetch" href="/assets/js/86.71da2c92.js"><link rel="prefetch" href="/assets/js/87.c7fc4158.js"><link rel="prefetch" href="/assets/js/88.d88e29e3.js"><link rel="prefetch" href="/assets/js/89.50626a13.js"><link rel="prefetch" href="/assets/js/9.ea2857d4.js"><link rel="prefetch" href="/assets/js/90.9569a814.js"><link rel="prefetch" href="/assets/js/91.b3fc8641.js"><link rel="prefetch" href="/assets/js/92.90a8e499.js"><link rel="prefetch" href="/assets/js/93.5286e2a8.js"><link rel="prefetch" href="/assets/js/94.33ee75da.js"><link rel="prefetch" href="/assets/js/95.2c4966e0.js"><link rel="prefetch" href="/assets/js/96.ecc711db.js"><link rel="prefetch" href="/assets/js/97.be4ba4f9.js"><link rel="prefetch" href="/assets/js/98.e8a250e6.js"><link rel="prefetch" href="/assets/js/99.2cb509e8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b28fe3e0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="SuperFan" class="logo"> <span class="site-name can-hide">SuperFan</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="sidebar-link">getUserMedia 使用</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_2.html" class="sidebar-link">获取音视频设备列表</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_3.html" class="sidebar-link">利用浏览器实现拍照功能</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_4.html" class="sidebar-link">视频的录制</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_5.html" class="sidebar-link">桌面抓取</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_6.html" aria-current="page" class="active sidebar-link">你不知道SDP!</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_6.html#交换-sdp-信息" class="sidebar-link">交换 SDP 信息</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_6.html#标准-sdp-规范" class="sidebar-link">标准 SDP 规范</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_6.html#_1-sdp-的格式" class="sidebar-link">1. SDP 的格式</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_6.html#_2-sdp-的结构" class="sidebar-link">2. SDP 的结构</a></li></ul></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_6.html#webrtc-中的-sdp" class="sidebar-link">WebRTC 中的 SDP</a></li></ul></li><li><a href="/fontendAdvance/WebRTC/web_rtc_7.html" class="sidebar-link">媒体协商</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_8.html" class="sidebar-link">如何建立连接</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_9.html" class="sidebar-link">简单的信令服务搭建</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_10.html" class="sidebar-link">文本聊天的实现</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_11.html" class="sidebar-link">实时传输文件</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_12.html" class="sidebar-link">统计信息</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webrtc-六-你不知道sdp"><a href="#webrtc-六-你不知道sdp" class="header-anchor">#</a> WebRTC（六）你不知道SDP！</h1> <h1 id="sdp-是什么"><a href="#sdp-是什么" class="header-anchor">#</a> SDP 是什么</h1> <p><strong>SDP</strong>（Session Description Protocal）说直白点就是用文本描述的<strong>各端</strong>（PC 端、Mac 端、Android 端、iOS 端等）的<strong>能力</strong>。这里的能力指的是各端所支持的音频编解码器是什么，这些编解码器设定的参数是什么，使用的传输协议是什么，以及包括的音视频媒体是什么等等。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>v<span class="token operator">=</span><span class="token number">0</span>
+
+o<span class="token operator">=</span><span class="token operator">-</span> <span class="token number">3409821183230872764</span> <span class="token number">2</span> <span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>
+
+<span class="token operator">...</span>
+
+m<span class="token operator">=</span>audio <span class="token number">9</span> <span class="token constant">UDP</span><span class="token operator">/</span><span class="token constant">TLS</span><span class="token operator">/</span><span class="token constant">RTP</span><span class="token operator">/</span><span class="token constant">SAVPF</span> <span class="token number">111</span> <span class="token number">103</span> <span class="token number">104</span> <span class="token number">9</span> <span class="token number">0</span> <span class="token number">8</span> <span class="token number">106</span> <span class="token number">105</span> <span class="token number">13</span> <span class="token number">110</span> <span class="token number">112</span> <span class="token number">113</span> <span class="token number">126</span>
+
+<span class="token operator">...</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">111</span> opus<span class="token operator">/</span><span class="token number">48000</span><span class="token operator">/</span><span class="token number">2</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">103</span> <span class="token constant">ISAC</span><span class="token operator">/</span><span class="token number">16000</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">104</span> <span class="token constant">ISAC</span><span class="token operator">/</span><span class="token number">32000</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><blockquote><p>如上面的 <strong>SDP</strong> 片段所示，该 SDP 中描述了一路音频流，即<strong>m=audio</strong>，该音频支持的 Payload ( 即数据负载 ) 类型包括 111、103、104 等等。 在该 SDP 片段中又进一步对 111、103、104 等 Payload 类型做了更详细的描述，如 <strong>a=rtpmap:111 opus/48000/2</strong>表示 <strong>Payload</strong> 类型为 <strong>111</strong> 的数据是 <strong>OPUS</strong> 编码的音频数据，并且它的采样率是 48000，使用双声道。以此类推，你也就可以知道** a=rtpmap:104 ISAC/32000** 的含义是音频数据使用 <strong>ISAC</strong> 编码，采样频率是 <strong>32000</strong>，使用单声道。</p></blockquote> <h2 id="交换-sdp-信息"><a href="#交换-sdp-信息" class="header-anchor">#</a> 交换 SDP 信息</h2> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a901b60dc6948c3afbc2f925b53c71e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?" alt="image.png"> 如上图所示，两个客户端 / 浏览器进行 1 对 1 通话时，首先要进行信令交互，而交互的一个重要信息就是 SDP 的交换。</p> <h2 id="标准-sdp-规范"><a href="#标准-sdp-规范" class="header-anchor">#</a> 标准 SDP 规范</h2> <p>主要包括 <strong>SDP 描述格式</strong>和 <strong>SDP 结构</strong>，而 SDP 结构由<strong>会话描述</strong>和<strong>媒体信息</strong>描述两个部分组成。</p> <blockquote><p>其中，媒体信息描述是整个 SDP 规范中最重要的知识，它又包括了：</p></blockquote> <ul><li>媒体类型</li> <li>媒体格式</li> <li>传输协议</li> <li>传输的 IP 和端口</li></ul> <h3 id="_1-sdp-的格式"><a href="#_1-sdp-的格式" class="header-anchor">#</a> 1. SDP 的格式</h3> <p>SDP 是由多个 type=value 这样的表达式组成的。其中，type是一个字符，value是一个字符串。需要特别注意的是，“=” 两边是不能有空格的。如下所示：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>v<span class="token operator">=</span><span class="token number">0</span>
+
+o<span class="token operator">=</span><span class="token operator">-</span> <span class="token number">7017624586836067756</span> <span class="token number">2</span> <span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>
+
+s<span class="token operator">=</span><span class="token operator">-</span>
+
+t<span class="token operator">=</span><span class="token number">0</span> <span class="token number">0</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>SDP 由一个<strong>会话级描述</strong>（session level description）和<strong>多个媒体级描述</strong>（media level description）组成。</p> <ul><li><strong>会话级</strong>（session level）的作用域是整个会话，其位置是从 v= 行开始到第一个媒体描述为止。</li> <li><strong>媒体级</strong>（media level）是对单个的媒体流进行描述，其位置是从 m= 行开始到下一个媒体描述（即下一个 m=）为止。</li></ul> <h3 id="_2-sdp-的结构"><a href="#_2-sdp-的结构" class="header-anchor">#</a> 2. SDP 的结构</h3> <p>了解了 SDP 的格式，下面我们来看一下 SDP 的结构，它由会话描述和媒体描述两部分组成。</p> <h4 id="_1-会话描述"><a href="#_1-会话描述" class="header-anchor">#</a> （1）会话描述</h4> <p>会话描述的字段比较多，下面四个字段比较重要，我们来重点介绍一下。</p> <ul><li><strong>第一个</strong>，v=（protocol version，必选）。例子：v=0 ，表示 SDP 的版本号，但不包括次版本号。</li> <li><strong>第二个</strong>，o=（owner/creator and session identifier，必选）。例子：o=<code>username</code>, <code>session id</code>, <code>version</code>, <code>network type</code>, <code>address type</code>, <code>address</code>，该例子是对一个会话发起者的描述。其中， o= 表示的是对会话发起者的描述；</li></ul> <ol><li><code>username</code>：用户名，当不关心用户名时，可以用 “－” 代替 ；</li> <li><code>session id</code> ：数字串，在整个会话中，必须是唯一的，建议使用 NTP 时间戳；</li> <li><code>version</code>：版本号，每次会话数据修改后，该版本值会递增；</li> <li><code>network type</code> ：网络类型，一般为“IN”，表示“internet”；</li> <li><code>address type</code>：地址类型，一般为 IP4；</li> <li><code>address</code>：IP 地址。</li></ol> <ul><li><strong>第三个</strong>，Session Name（必选）。例子：s=<code>session name</code>，该例子表示一个会话，在整个 SDP 中有且只有一个会话，也就是只有一个 s=。</li> <li><strong>第四个</strong>，t=（time the session is active，必选）。例子：t=<code>start time</code> <code>stop time</code>，该例子描述了会话的开始时间和结束时间。其中， <code>start time</code> 和 <code>stop time</code> 为 NTP 时间，单位是秒；当<code>start time</code>和<code>stop time</code>均为零时，表示持久会话。</li></ul> <h4 id="_2-媒体描述"><a href="#_2-媒体描述" class="header-anchor">#</a> （2）媒体描述</h4> <ul><li><strong>第一个</strong>，m=（media name and transport address，可选）。例子：m=media port transport fmt list，表示一个会话。在一个 SDP 中一般会有多个媒体描述。每个媒体描述以“m=”开始到下一个“m=”结束。其中，</li></ul> <ol><li><strong>media</strong>：媒体类型，比如 audio/video 等；</li> <li><strong>port</strong>：端口；</li> <li><strong>transport</strong>：传输协议，有两种——RTP/AVP 和 UDP； fmt list：媒体格式，即数据负载类型 (Payload Type) 列表。</li></ol> <ul><li><strong>第二个</strong>，a=*（zero or more media attribute lines，可选）。例子：a=<code>TYPE</code>或 a=<code>TYPE:VALUES</code>， 表示属性，用于进一步描述媒体信息；在例子中，指属性的类型， a= 有两个特别的属性类型，即下面要介绍的 <code>rtpmap</code> 和 <code>fmtp</code>。</li> <li><strong>第三个</strong>，rtpmap（可选）。例子：a=<code>rtpmap</code>:<code>payload</code> <code>type</code> <code>encoding</code> <code>name</code>/<code>clock rate</code>[/<code>encodingparameters</code>]。 rtpmap 是 rtp 与 map 的结合，即 RTP 参数映射表。</li></ul> <ol><li><code>payload type</code> ：负载类型，对应 RTP 包中的音视频数据负载类型。</li> <li><code>encoding name</code>：编码器名称，如 VP8、VP9、OPUS 等。</li> <li><code>sample rate</code>：采样率，如音频的采样率频率 32000、48000 等。</li> <li><code>encodingparameters</code>：编码参数，如音频是否是双声道，默认为单声道。</li></ol> <ul><li><strong>第四个</strong>，<strong>fmtp</strong>。例子：a=fmtp:<code>payload type</code> <code>format specific parameters</code>。 <strong>fmtp</strong>，格式参数，即 format parameters； <code>payload type</code> ，负载类型，同样对应 RTP 包中的音视频数据负载类型； <code>format specific parameters</code>指具体参数。</li></ul> <h2 id="webrtc-中的-sdp"><a href="#webrtc-中的-sdp" class="header-anchor">#</a> WebRTC 中的 SDP</h2> <p>WebRTC 对标准 SDP 规范做了一些调整，它将 SDP 按功能分成几大块：</p> <ul><li><strong>Session Metadata</strong>，会话元数据</li> <li><strong>Network Description</strong>，网络描述</li> <li><strong>Stream Description</strong>，流描述</li> <li><strong>Security Descriptions</strong>，安全描述</li> <li><strong>Qos Grouping Descriptions</strong>， 服务质量描述</li></ul> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">//=============会话描述====================</span>
+
+v<span class="token operator">=</span><span class="token number">0</span>
+
+o<span class="token operator">=</span><span class="token operator">-</span> <span class="token number">7017624586836067756</span> <span class="token number">2</span> <span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span>
+
+s<span class="token operator">=</span><span class="token operator">-</span>
+
+t<span class="token operator">=</span><span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//================媒体描述=================</span>
+
+<span class="token comment">//================音频媒体=================</span>
+
+<span class="token comment">/*
+
+* 音频使用端口1024收发数据
+
+* UDP/TLS/RTP/SAVPF 表示使用 dtls/srtp 协议对数据加密传输
+
+* 111、103 ... 表示本会话音频数据的 Payload Type
+
+*/</span>
+
+m<span class="token operator">=</span>audio <span class="token number">1024</span> <span class="token constant">UDP</span><span class="token operator">/</span><span class="token constant">TLS</span><span class="token operator">/</span><span class="token constant">RTP</span><span class="token operator">/</span><span class="token constant">SAVPF</span> <span class="token number">111</span> <span class="token number">103</span> <span class="token number">104</span> <span class="token number">9</span> <span class="token number">0</span> <span class="token number">8</span> <span class="token number">106</span> <span class="token number">105</span> <span class="token number">13</span> <span class="token number">126</span>
+
+<span class="token comment">//==============网络描述==================</span>
+
+<span class="token comment">//指明接收或者发送音频使用的IP地址，由于WebRTC使用ICE传输，这个被忽略。</span>
+
+c<span class="token operator">=</span><span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span>
+
+<span class="token comment">//用来设置rtcp地址和端口，WebRTC不使用</span>
+
+a<span class="token operator">=</span>rtcp<span class="token operator">:</span><span class="token number">9</span> <span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//==============音频安全描述================</span>
+
+<span class="token comment">//ICE协商过程中的安全验证信息</span>
+
+a<span class="token operator">=</span>ice<span class="token operator">-</span>ufrag<span class="token operator">:</span>khLS
+
+a<span class="token operator">=</span>ice<span class="token operator">-</span>pwd<span class="token operator">:</span>cxLzteJaJBou3DspNaPsJhlQ
+
+a<span class="token operator">=</span>fingerprint<span class="token operator">:</span>sha<span class="token operator">-</span><span class="token number">256</span> <span class="token constant">FA</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">42</span><span class="token operator">:</span>3B<span class="token operator">:</span><span class="token constant">C7</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span>1B<span class="token operator">:</span><span class="token constant">E8</span><span class="token operator">:</span><span class="token constant">AE</span><span class="token operator">:</span>0C2<span class="token operator">:</span><span class="token number">71</span><span class="token operator">:</span><span class="token number">03</span><span class="token operator">:</span><span class="token number">05</span><span class="token operator">:</span><span class="token number">05</span><span class="token operator">:</span><span class="token number">16</span><span class="token operator">:</span>8F<span class="token operator">:</span><span class="token constant">B9</span><span class="token operator">:</span><span class="token constant">C7</span><span class="token operator">:</span><span class="token number">98</span><span class="token operator">:</span><span class="token constant">E9</span><span class="token operator">:</span><span class="token number">60</span><span class="token operator">:</span><span class="token number">43</span><span class="token operator">:</span>4B<span class="token operator">:</span>5B<span class="token operator">:</span>2C<span class="token operator">:</span><span class="token number">28</span><span class="token operator">:</span><span class="token constant">EE</span><span class="token operator">:</span>5C<span class="token operator">:</span>8F3<span class="token operator">:</span><span class="token number">17</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//==============音频流媒体描述================</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">111</span> opus<span class="token operator">/</span><span class="token number">48000</span><span class="token operator">/</span><span class="token number">2</span>
+
+<span class="token comment">//minptime代表最小打包时长是10ms，useinbandfec=1代表使用opus编码内置fec特性</span>
+
+a<span class="token operator">=</span>fmtp<span class="token operator">:</span><span class="token number">111</span> minptime<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>useinbandfec<span class="token operator">=</span><span class="token number">1</span>
+
+<span class="token operator">...</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">103</span> <span class="token constant">ISAC</span><span class="token operator">/</span><span class="token number">16000</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">104</span> <span class="token constant">ISAC</span><span class="token operator">/</span><span class="token number">32000</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">9</span> <span class="token constant">G722</span><span class="token operator">/</span><span class="token number">8000</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//=================视频媒体=================</span>
+
+m<span class="token operator">=</span>video <span class="token number">9</span> <span class="token constant">UDP</span><span class="token operator">/</span><span class="token constant">TLS</span><span class="token operator">/</span><span class="token constant">RTP</span><span class="token operator">/</span><span class="token constant">SAVPF</span> <span class="token number">100</span> <span class="token number">101</span> <span class="token number">107</span> <span class="token number">116</span> <span class="token number">117</span> <span class="token number">96</span> <span class="token number">97</span> <span class="token number">99</span> <span class="token number">98</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//=================网络描述=================</span>
+
+c<span class="token operator">=</span><span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span>
+
+a<span class="token operator">=</span>rtcp<span class="token operator">:</span><span class="token number">9</span> <span class="token constant">IN</span> <span class="token constant">IP4</span> <span class="token number">0.0</span><span class="token number">.0</span><span class="token number">.0</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//=================视频安全描述=================</span>
+
+a<span class="token operator">=</span>ice<span class="token operator">-</span>ufrag<span class="token operator">:</span>khLS
+
+a<span class="token operator">=</span>ice<span class="token operator">-</span>pwd<span class="token operator">:</span>cxLzteJaJBou3DspNaPsJhlQ
+
+a<span class="token operator">=</span>fingerprint<span class="token operator">:</span>sha<span class="token operator">-</span><span class="token number">256</span> <span class="token constant">FA</span><span class="token operator">:</span><span class="token number">14</span><span class="token operator">:</span><span class="token number">42</span><span class="token operator">:</span>3B<span class="token operator">:</span><span class="token constant">C7</span><span class="token operator">:</span><span class="token number">97</span><span class="token operator">:</span>1B<span class="token operator">:</span><span class="token constant">E8</span><span class="token operator">:</span><span class="token constant">AE</span><span class="token operator">:</span>0C2<span class="token operator">:</span><span class="token number">71</span><span class="token operator">:</span><span class="token number">03</span><span class="token operator">:</span><span class="token number">05</span><span class="token operator">:</span><span class="token number">05</span><span class="token operator">:</span><span class="token number">16</span><span class="token operator">:</span>8F<span class="token operator">:</span><span class="token constant">B9</span><span class="token operator">:</span><span class="token constant">C7</span><span class="token operator">:</span><span class="token number">98</span><span class="token operator">:</span><span class="token constant">E9</span><span class="token operator">:</span><span class="token number">60</span><span class="token operator">:</span><span class="token number">43</span><span class="token operator">:</span>4B<span class="token operator">:</span>5B<span class="token operator">:</span>2C<span class="token operator">:</span><span class="token number">28</span><span class="token operator">:</span><span class="token constant">EE</span><span class="token operator">:</span>5C<span class="token operator">:</span>8F3<span class="token operator">:</span><span class="token number">17</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//================视频流描述===============</span>
+
+a<span class="token operator">=</span>mid<span class="token operator">:</span>video
+
+<span class="token operator">...</span>
+
+a<span class="token operator">=</span>rtpmap<span class="token operator">:</span><span class="token number">100</span> <span class="token constant">VP8</span><span class="token operator">/</span><span class="token number">90000</span>
+
+<span class="token comment">//================服务质量描述===============</span>
+
+a<span class="token operator">=</span>rtcp<span class="token operator">-</span>fb<span class="token operator">:</span><span class="token number">100</span> ccm fir
+
+a<span class="token operator">=</span>rtcp<span class="token operator">-</span>fb<span class="token operator">:</span><span class="token number">100</span> nack <span class="token comment">//支持丢包重传，参考rfc4585</span>
+
+a<span class="token operator">=</span>rtcp<span class="token operator">-</span>fb<span class="token operator">:</span><span class="token number">100</span> nack pli
+
+a<span class="token operator">=</span>rtcp<span class="token operator">-</span>fb<span class="token operator">:</span><span class="token number">100</span> goog<span class="token operator">-</span>remb <span class="token comment">//支持使用rtcp包来控制发送方的码流</span>
+
+a<span class="token operator">=</span>rtcp<span class="token operator">-</span>fb<span class="token operator">:</span><span class="token number">100</span> transport<span class="token operator">-</span>cc
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br></div></div><blockquote><p>从上面这段 SDP 中你应该可以总结出：SDP 是由一个<strong>会话层</strong>和<strong>多个媒体层</strong>组成的；而对于每个<strong>媒体层</strong>，WebRTC 又将其细划为四部分，即<strong>媒体流、网络描述、安全描述和服务质量描述</strong>。</p></blockquote></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/13/2023, 9:16:34 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/fontendAdvance/WebRTC/web_rtc_5.html" class="prev">
+        桌面抓取
+      </a></span> <span class="next"><a href="/fontendAdvance/WebRTC/web_rtc_7.html">
+        媒体协商
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="goTop" class="hide-cat" data-v-bf92849a></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:270px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="270" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:270px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.13992e3b.js" defer></script><script src="/assets/js/3.388af1c5.js" defer></script><script src="/assets/js/31.a9cff1ec.js" defer></script>
+  </body>
+</html>

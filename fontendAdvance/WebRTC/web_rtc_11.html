@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebRTC（十一）实时传输文件 | SuperFan</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.b28fe3e0.css" as="style"><link rel="preload" href="/assets/js/app.13992e3b.js" as="script"><link rel="preload" href="/assets/js/3.388af1c5.js" as="script"><link rel="preload" href="/assets/js/25.2a702711.js" as="script"><link rel="prefetch" href="/assets/js/10.a2c8b213.js"><link rel="prefetch" href="/assets/js/100.87b19e83.js"><link rel="prefetch" href="/assets/js/101.9c445042.js"><link rel="prefetch" href="/assets/js/102.56b91ab9.js"><link rel="prefetch" href="/assets/js/103.8107aa17.js"><link rel="prefetch" href="/assets/js/104.bb6b1483.js"><link rel="prefetch" href="/assets/js/105.b7732efa.js"><link rel="prefetch" href="/assets/js/106.9699cc29.js"><link rel="prefetch" href="/assets/js/107.6ef815a1.js"><link rel="prefetch" href="/assets/js/108.83d3ec24.js"><link rel="prefetch" href="/assets/js/11.8dcacf9b.js"><link rel="prefetch" href="/assets/js/12.704b7211.js"><link rel="prefetch" href="/assets/js/13.3652826d.js"><link rel="prefetch" href="/assets/js/14.1bb5d988.js"><link rel="prefetch" href="/assets/js/15.7f5e5000.js"><link rel="prefetch" href="/assets/js/16.d8fe454e.js"><link rel="prefetch" href="/assets/js/17.3bca16d7.js"><link rel="prefetch" href="/assets/js/18.5bd51cd8.js"><link rel="prefetch" href="/assets/js/19.3e578a16.js"><link rel="prefetch" href="/assets/js/2.4f533cd7.js"><link rel="prefetch" href="/assets/js/20.8e1d45c2.js"><link rel="prefetch" href="/assets/js/21.fa658cc2.js"><link rel="prefetch" href="/assets/js/22.1f402cfb.js"><link rel="prefetch" href="/assets/js/23.625832af.js"><link rel="prefetch" href="/assets/js/24.e2712bd4.js"><link rel="prefetch" href="/assets/js/26.e7bedeed.js"><link rel="prefetch" href="/assets/js/27.79cb8880.js"><link rel="prefetch" href="/assets/js/28.76ac1bc9.js"><link rel="prefetch" href="/assets/js/29.5dff4e5a.js"><link rel="prefetch" href="/assets/js/30.8b9fc1c4.js"><link rel="prefetch" href="/assets/js/31.a9cff1ec.js"><link rel="prefetch" href="/assets/js/32.5bbb5078.js"><link rel="prefetch" href="/assets/js/33.f52512be.js"><link rel="prefetch" href="/assets/js/34.f867ceea.js"><link rel="prefetch" href="/assets/js/35.f93db42a.js"><link rel="prefetch" href="/assets/js/36.29744885.js"><link rel="prefetch" href="/assets/js/37.d619cb4f.js"><link rel="prefetch" href="/assets/js/38.63bcf1fd.js"><link rel="prefetch" href="/assets/js/39.3a45fad8.js"><link rel="prefetch" href="/assets/js/4.77360881.js"><link rel="prefetch" href="/assets/js/40.ebe2099a.js"><link rel="prefetch" href="/assets/js/41.102f4ed1.js"><link rel="prefetch" href="/assets/js/42.7117b86a.js"><link rel="prefetch" href="/assets/js/43.a970eae6.js"><link rel="prefetch" href="/assets/js/44.4a74ccf1.js"><link rel="prefetch" href="/assets/js/45.0a26b3b0.js"><link rel="prefetch" href="/assets/js/46.9825e1da.js"><link rel="prefetch" href="/assets/js/47.47c7dbeb.js"><link rel="prefetch" href="/assets/js/48.a5be617f.js"><link rel="prefetch" href="/assets/js/49.5b95eb29.js"><link rel="prefetch" href="/assets/js/5.ca564742.js"><link rel="prefetch" href="/assets/js/50.95fad945.js"><link rel="prefetch" href="/assets/js/51.d24f47a0.js"><link rel="prefetch" href="/assets/js/52.0de8214f.js"><link rel="prefetch" href="/assets/js/53.e133f12d.js"><link rel="prefetch" href="/assets/js/54.ad4fb0b1.js"><link rel="prefetch" href="/assets/js/55.32a72431.js"><link rel="prefetch" href="/assets/js/56.12689f10.js"><link rel="prefetch" href="/assets/js/57.2863becb.js"><link rel="prefetch" href="/assets/js/58.9decc151.js"><link rel="prefetch" href="/assets/js/59.f1c27378.js"><link rel="prefetch" href="/assets/js/6.9b404325.js"><link rel="prefetch" href="/assets/js/60.9850bad8.js"><link rel="prefetch" href="/assets/js/61.dc0e4558.js"><link rel="prefetch" href="/assets/js/62.92074996.js"><link rel="prefetch" href="/assets/js/63.f7ad59d9.js"><link rel="prefetch" href="/assets/js/64.a95e9b9e.js"><link rel="prefetch" href="/assets/js/65.bec6b166.js"><link rel="prefetch" href="/assets/js/66.249f90fe.js"><link rel="prefetch" href="/assets/js/67.ed5cdf6d.js"><link rel="prefetch" href="/assets/js/68.a97ee492.js"><link rel="prefetch" href="/assets/js/69.b0a1cedf.js"><link rel="prefetch" href="/assets/js/7.ccd64634.js"><link rel="prefetch" href="/assets/js/70.8ec53658.js"><link rel="prefetch" href="/assets/js/71.8aa27851.js"><link rel="prefetch" href="/assets/js/72.deee3dbe.js"><link rel="prefetch" href="/assets/js/73.68ad2d92.js"><link rel="prefetch" href="/assets/js/74.8225834e.js"><link rel="prefetch" href="/assets/js/75.723b5280.js"><link rel="prefetch" href="/assets/js/76.7b830b75.js"><link rel="prefetch" href="/assets/js/77.ebb7e6f4.js"><link rel="prefetch" href="/assets/js/78.ec4683d7.js"><link rel="prefetch" href="/assets/js/79.5812ca18.js"><link rel="prefetch" href="/assets/js/8.b694ab02.js"><link rel="prefetch" href="/assets/js/80.4ed23c8e.js"><link rel="prefetch" href="/assets/js/81.8e9a8b28.js"><link rel="prefetch" href="/assets/js/82.9b3797f6.js"><link rel="prefetch" href="/assets/js/83.56db35f9.js"><link rel="prefetch" href="/assets/js/84.dfd672e3.js"><link rel="prefetch" href="/assets/js/85.4f5c71fa.js"><link rel="prefetch" href="/assets/js/86.71da2c92.js"><link rel="prefetch" href="/assets/js/87.c7fc4158.js"><link rel="prefetch" href="/assets/js/88.d88e29e3.js"><link rel="prefetch" href="/assets/js/89.50626a13.js"><link rel="prefetch" href="/assets/js/9.ea2857d4.js"><link rel="prefetch" href="/assets/js/90.9569a814.js"><link rel="prefetch" href="/assets/js/91.b3fc8641.js"><link rel="prefetch" href="/assets/js/92.90a8e499.js"><link rel="prefetch" href="/assets/js/93.5286e2a8.js"><link rel="prefetch" href="/assets/js/94.33ee75da.js"><link rel="prefetch" href="/assets/js/95.2c4966e0.js"><link rel="prefetch" href="/assets/js/96.ecc711db.js"><link rel="prefetch" href="/assets/js/97.be4ba4f9.js"><link rel="prefetch" href="/assets/js/98.e8a250e6.js"><link rel="prefetch" href="/assets/js/99.2cb509e8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b28fe3e0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="SuperFan" class="logo"> <span class="site-name can-hide">SuperFan</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="sidebar-link">getUserMedia 使用</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_2.html" class="sidebar-link">获取音视频设备列表</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_3.html" class="sidebar-link">利用浏览器实现拍照功能</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_4.html" class="sidebar-link">视频的录制</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_5.html" class="sidebar-link">桌面抓取</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_6.html" class="sidebar-link">你不知道SDP!</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_7.html" class="sidebar-link">媒体协商</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_8.html" class="sidebar-link">如何建立连接</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_9.html" class="sidebar-link">简单的信令服务搭建</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_10.html" class="sidebar-link">文本聊天的实现</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_11.html" aria-current="page" class="active sidebar-link">实时传输文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#基本原理" class="sidebar-link">基本原理</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#文件传输的具体实现" class="sidebar-link">文件传输的具体实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#_1-rtcdatachannel-对象的创建" class="sidebar-link">1. RTCDataChannel 对象的创建</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#_2-通过-rtcdatachannel-对象接收数据" class="sidebar-link">2. 通过 RTCDataChannel 对象接收数据</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#_3-文件的读取与发送" class="sidebar-link">3. 文件的读取与发送</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_11.html#_4-通过信令传递文件的基本信息" class="sidebar-link">4. 通过信令传递文件的基本信息</a></li></ul></li></ul></li><li><a href="/fontendAdvance/WebRTC/web_rtc_12.html" class="sidebar-link">统计信息</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webrtc-十一-实时传输文件"><a href="#webrtc-十一-实时传输文件" class="header-anchor">#</a> WebRTC（十一）实时传输文件</h1> <h3 id="webrtc实时传输文件"><a href="#webrtc实时传输文件" class="header-anchor">#</a> WebRTC实时传输文件</h3> <h2 id="基本原理"><a href="#基本原理" class="header-anchor">#</a> 基本原理</h2> <p>在 WebRTC 中，<strong>实时文件的传输与实时文本消息传输的基本原理是一样的，都是使用 RTCDataChannel 对象进行传输</strong>。但它们之间还是有一些差别的，一方面是<strong>传输数据的类型</strong>不一样，另一方面是<strong>数据的大小</strong>不一样</p> <h2 id="文件传输的具体实现"><a href="#文件传输的具体实现" class="header-anchor">#</a> 文件传输的具体实现</h2> <h3 id="_1-rtcdatachannel-对象的创建"><a href="#_1-rtcdatachannel-对象的创建" class="header-anchor">#</a> 1. RTCDataChannel 对象的创建</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">//创建 RTCDataChannel 对象的选项</span>
+
+<span class="token keyword">var</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+<span class="token literal-property property">ordered</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token literal-property property">maxRetransmits</span> <span class="token operator">:</span> <span class="token number">30</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//创建 RTCPeerConnection 对象</span>
+
+<span class="token keyword">var</span> pc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RTCPeerConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//创建 RTCDataChannel 对象</span>
+
+<span class="token keyword">var</span> dc <span class="token operator">=</span> pc<span class="token punctuation">.</span><span class="token function">createDataChannel</span><span class="token punctuation">(</span><span class="token string">&quot;dc&quot;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>通过对比，你可以看到它们之间的不同是：在实时文件传输中创建 RTCDataChannel 对象带了 options 参数，而实时文本聊天中并没有带该参数。</p> <p>在这个示例中之所以要带 options 参数，是因为在端与端之间传输文件时，必须要保证文件内容的有序和完整，所以在创建 RTCDataChannel 对象时，你需要给它设置一些参数，即需要设置 <strong>ordered</strong> 和 <strong>maxRetransmits</strong> 选项。当 ordered 设置为真后，就可以保证数据的有序到达；而 maxRetransmits 设置为 30，则保证在有丢包的情况下可以对丢包进行重传，并且最多尝试重传 30 次。</p> <p>通过实践证明，如果你在创建 RTCDataChannel 对象时不设置这两个参数的话，那么在传输大文件（如 800M 大小的文件）时就很容易失败。而设置了这两个参数后，传输大文件时基本就没再失败过了，由此可见这两个参数的重要性了。</p> <h3 id="_2-通过-rtcdatachannel-对象接收数据"><a href="#_2-通过-rtcdatachannel-对象接收数据" class="header-anchor">#</a> 2. 通过 RTCDataChannel 对象接收数据</h3> <blockquote><p>创建好 RTCDataChannel 对象后，你仍然要实现 RTCDataChannel 对象的 4 个重要事件（打开、关闭、接收到消息以及出错时接收到事件）的回调函数，代码如下：</p></blockquote> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>dc<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+dc<span class="token punctuation">.</span><span class="token function-variable function">onopen</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+dc<span class="token punctuation">.</span><span class="token function-variable function">onclose</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+dc<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>这四个事件的作用如下：</p> <ul><li><strong>onerror</strong>，是指当发生连接失败时的处理逻辑；</li> <li><strong>onopen</strong>，是指当 datachannel 打开时的处理逻辑；</li> <li><strong>onclose</strong>，是指当 datachannel 关闭时的处理逻辑；</li> <li><strong>onmessage</strong>，是指当收到消息时的处理逻辑。</li></ul> <p>其中最重要的是 <strong>onmessage</strong> 事件，当有数据到达时就会触发该事件。那接下来，我们就看一下到底该如何实现这个事件处理函数，具体代码如下：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">var</span> receiveBuffer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//存放数据的数组</span>
+
+<span class="token keyword">var</span> receiveSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//数据大小</span>
+
+<span class="token operator">...</span>
+
+<span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token comment">//每次事件被触发时，说明有数据来了，将收到的数据放到数组中</span>
+
+receiveBuffer<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//更新已经收到的数据的长度</span>
+
+receivedSize <span class="token operator">+=</span> event<span class="token punctuation">.</span>data<span class="token punctuation">.</span>byteLength<span class="token punctuation">;</span>
+
+<span class="token comment">//如果接收到的字节数与文件大小相同，则创建文件</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>receivedSize <span class="token operator">===</span> fileSize<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//fileSize 是通过信令传过来的</span>
+
+<span class="token comment">//创建文件</span>
+
+<span class="token keyword">var</span> received <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Blob</span><span class="token punctuation">(</span>receiveBuffer<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'application/octet-stream'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//将buffer和 size 清空，为下一次传文件做准备</span>
+
+receiveBuffer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+receiveSize <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment">//生成下载地址</span>
+
+downloadAnchor<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>received<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+downloadAnchor<span class="token punctuation">.</span>download <span class="token operator">=</span> fileName<span class="token punctuation">;</span>
+
+downloadAnchor<span class="token punctuation">.</span>textContent <span class="token operator">=</span>
+
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Click to download '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">' (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileSize<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> bytes)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+downloadAnchor<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'block'</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><p>面这段代码的逻辑还是非常简单的，每当该函数被调用时，说明被传输文件的一部分数据已经到达了。这时你只需要简单地将收到的这块数据 push 到 receiveBuffer 数组中即可。</p> <p>当文件的所有数据都收到后，即receivedSize === fileSize条件成立时，你就可以以 receiveBuffer[] 数组为参数创建一个 Blob 对象了。紧接着，再给这个 Blob 对象创建一个下载地址，这样接收端的用户就可以通过该地址获取到文件了。</p> <h3 id="_3-文件的读取与发送"><a href="#_3-文件的读取与发送" class="header-anchor">#</a> 3. 文件的读取与发送</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>unction <span class="token function">sendData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token keyword">var</span> offset <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//偏移量</span>
+
+<span class="token keyword">var</span> chunkSize <span class="token operator">=</span> <span class="token number">16384</span><span class="token punctuation">;</span> <span class="token comment">//每次传输的块大小</span>
+
+<span class="token keyword">var</span> file <span class="token operator">=</span> fileInput<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//要传输的文件，它是通过HTML中的file获取的</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//创建fileReader来读取文件</span>
+
+fileReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+fileReader<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">//当数据被加载时触发该事件</span>
+
+<span class="token operator">...</span>
+
+dc<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//发送数据</span>
+
+offset <span class="token operator">+=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>result<span class="token punctuation">.</span>byteLength<span class="token punctuation">;</span> <span class="token comment">//更改已读数据的偏移量</span>
+
+<span class="token operator">...</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>offset <span class="token operator">&lt;</span> file<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//如果文件没有被读完</span>
+
+<span class="token function">readSlice</span><span class="token punctuation">(</span>offset<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 读取数据</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">readSlice</span> <span class="token operator">=</span> <span class="token parameter">o</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span> slice <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>offset<span class="token punctuation">,</span> o <span class="token operator">+</span> chunkSize<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//计算数据位置</span>
+
+fileReader<span class="token punctuation">.</span><span class="token function">readAsArrayBuffer</span><span class="token punctuation">(</span>slice<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//读取 16K 数据</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">readSlice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//开始读取数据</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><p>在这段示例代码中，数据的读取是通过 sendData 函数实现的。在该函数中，使用 FileReader 对象每次从文件中读取 16K 的数据，然后再调用 RTCDataChannel 对象的 send 方法将其发送出去。</p> <p>这段代码中有两个关键点：一是 sendData 整个函数的执行是 readSlice(0) 开始的；二是 FileReader 对象的 onload 事件是在有数据被读入到 FileReader 的缓冲区之后才触发的。掌握了这两个关键点，你就非常容易理解 sendData 函数的逻辑了。</p> <p>那该怎么理解这两个关键点呢？实际上， sendData 函数在创建了 FileReader 对象之后，下面的代码都不会执行，直到调用 readSlice(0) 才开始从文件中读取数据；当数据被读到 FileReader 对象的缓冲区之后，就会触发 onload 事件，从而开始执行 onload 事件的回调函数。而在这个回调函数中是一个循环，不断地从文件中读取数据、发送数据，直到读到文件结束为止。以上就是 sendData 函数的逻辑。</p> <h3 id="_4-通过信令传递文件的基本信息"><a href="#_4-通过信令传递文件的基本信息" class="header-anchor">#</a> 4. 通过信令传递文件的基本信息</h3> <blockquote><p>上面我已经将 RTCDataChannel 对象的创建、数据发送与接收的方法以及 JavaScript 对文件进行读取的操作向你做了详细的介绍。但还有一块儿重要的知识需要向你讲解，那就是：接收端是如何知道发送端所要传输的文件大小、类型以及文件名的呢？</p></blockquote> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token operator">...</span>
+
+<span class="token comment">//获取文件相关的信息</span>
+
+fileName <span class="token operator">=</span> file<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+
+fileSize <span class="token operator">=</span> file<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+
+fileType <span class="token operator">=</span> file<span class="token punctuation">.</span>type<span class="token punctuation">;</span>
+
+lastModifyTime <span class="token operator">=</span> file<span class="token punctuation">.</span>lastModified<span class="token punctuation">;</span>
+
+<span class="token comment">//向信令服务器发送消息</span>
+
+<span class="token function">sendMessage</span><span class="token punctuation">(</span>roomid<span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span>
+
+<span class="token comment">//将文件信息以 JSON 格式发磅</span>
+
+<span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">'fileinfo'</span><span class="token punctuation">,</span>
+
+<span class="token literal-property property">name</span><span class="token operator">:</span> file<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+
+<span class="token literal-property property">size</span><span class="token operator">:</span> file<span class="token punctuation">.</span>size<span class="token punctuation">,</span>
+
+<span class="token literal-property property">filetype</span><span class="token operator">:</span> file<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+
+<span class="token literal-property property">lastmodify</span><span class="token operator">:</span> file<span class="token punctuation">.</span>lastModified
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>在本段代码中，发送端首先获得被传输文件的基本信息，如文件名、文件类型、文件大小等，然后再通过 socket.io 以 JSON 的格式将这些信息发给信令服务器。</p> <p>信令服务器收到该消息后不做其他处理，直接转发到接收端。下面是接收端收到消息后的处理逻辑，代码如下：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">roomid<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">//如果是 fileinfo 类型的消息</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'fileinfo'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+<span class="token comment">//读出文件的基本信息</span>
+
+fileName <span class="token operator">=</span> data<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+
+fileType <span class="token operator">=</span> data<span class="token punctuation">.</span>filetype<span class="token punctuation">;</span>
+
+fileSize <span class="token operator">=</span> data<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+
+lastModifyTime <span class="token operator">=</span> data<span class="token punctuation">.</span>lastModify<span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>在接收端的 socket.io 一直在侦听 message 消息，当收到 message 消息且类型（type）为 fileinfo 时，说明对方已经将要传输文件的基本信息发送过来了。 接收到文件的基本信息后，接收端的处理逻辑也非常简单，只需要将传过来的基本信息保存起来就好了，等整个文件传输完成后，再根据这些信息生成对应的文件，这样接收端就可以将传输的文件拿到手了。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/13/2023, 9:16:34 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/fontendAdvance/WebRTC/web_rtc_10.html" class="prev">
+        文本聊天的实现
+      </a></span> <span class="next"><a href="/fontendAdvance/WebRTC/web_rtc_12.html">
+        统计信息
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="goTop" class="hide-cat" data-v-bf92849a></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:270px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="270" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:270px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.13992e3b.js" defer></script><script src="/assets/js/3.388af1c5.js" defer></script><script src="/assets/js/25.2a702711.js" defer></script>
+  </body>
+</html>

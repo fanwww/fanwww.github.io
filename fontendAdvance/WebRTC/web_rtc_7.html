@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebRTC（七）媒体协商 | SuperFan</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.b28fe3e0.css" as="style"><link rel="preload" href="/assets/js/app.13992e3b.js" as="script"><link rel="preload" href="/assets/js/3.388af1c5.js" as="script"><link rel="preload" href="/assets/js/32.5bbb5078.js" as="script"><link rel="prefetch" href="/assets/js/10.a2c8b213.js"><link rel="prefetch" href="/assets/js/100.87b19e83.js"><link rel="prefetch" href="/assets/js/101.9c445042.js"><link rel="prefetch" href="/assets/js/102.56b91ab9.js"><link rel="prefetch" href="/assets/js/103.8107aa17.js"><link rel="prefetch" href="/assets/js/104.bb6b1483.js"><link rel="prefetch" href="/assets/js/105.b7732efa.js"><link rel="prefetch" href="/assets/js/106.9699cc29.js"><link rel="prefetch" href="/assets/js/107.6ef815a1.js"><link rel="prefetch" href="/assets/js/108.83d3ec24.js"><link rel="prefetch" href="/assets/js/11.8dcacf9b.js"><link rel="prefetch" href="/assets/js/12.704b7211.js"><link rel="prefetch" href="/assets/js/13.3652826d.js"><link rel="prefetch" href="/assets/js/14.1bb5d988.js"><link rel="prefetch" href="/assets/js/15.7f5e5000.js"><link rel="prefetch" href="/assets/js/16.d8fe454e.js"><link rel="prefetch" href="/assets/js/17.3bca16d7.js"><link rel="prefetch" href="/assets/js/18.5bd51cd8.js"><link rel="prefetch" href="/assets/js/19.3e578a16.js"><link rel="prefetch" href="/assets/js/2.4f533cd7.js"><link rel="prefetch" href="/assets/js/20.8e1d45c2.js"><link rel="prefetch" href="/assets/js/21.fa658cc2.js"><link rel="prefetch" href="/assets/js/22.1f402cfb.js"><link rel="prefetch" href="/assets/js/23.625832af.js"><link rel="prefetch" href="/assets/js/24.e2712bd4.js"><link rel="prefetch" href="/assets/js/25.2a702711.js"><link rel="prefetch" href="/assets/js/26.e7bedeed.js"><link rel="prefetch" href="/assets/js/27.79cb8880.js"><link rel="prefetch" href="/assets/js/28.76ac1bc9.js"><link rel="prefetch" href="/assets/js/29.5dff4e5a.js"><link rel="prefetch" href="/assets/js/30.8b9fc1c4.js"><link rel="prefetch" href="/assets/js/31.a9cff1ec.js"><link rel="prefetch" href="/assets/js/33.f52512be.js"><link rel="prefetch" href="/assets/js/34.f867ceea.js"><link rel="prefetch" href="/assets/js/35.f93db42a.js"><link rel="prefetch" href="/assets/js/36.29744885.js"><link rel="prefetch" href="/assets/js/37.d619cb4f.js"><link rel="prefetch" href="/assets/js/38.63bcf1fd.js"><link rel="prefetch" href="/assets/js/39.3a45fad8.js"><link rel="prefetch" href="/assets/js/4.77360881.js"><link rel="prefetch" href="/assets/js/40.ebe2099a.js"><link rel="prefetch" href="/assets/js/41.102f4ed1.js"><link rel="prefetch" href="/assets/js/42.7117b86a.js"><link rel="prefetch" href="/assets/js/43.a970eae6.js"><link rel="prefetch" href="/assets/js/44.4a74ccf1.js"><link rel="prefetch" href="/assets/js/45.0a26b3b0.js"><link rel="prefetch" href="/assets/js/46.9825e1da.js"><link rel="prefetch" href="/assets/js/47.47c7dbeb.js"><link rel="prefetch" href="/assets/js/48.a5be617f.js"><link rel="prefetch" href="/assets/js/49.5b95eb29.js"><link rel="prefetch" href="/assets/js/5.ca564742.js"><link rel="prefetch" href="/assets/js/50.95fad945.js"><link rel="prefetch" href="/assets/js/51.d24f47a0.js"><link rel="prefetch" href="/assets/js/52.0de8214f.js"><link rel="prefetch" href="/assets/js/53.e133f12d.js"><link rel="prefetch" href="/assets/js/54.ad4fb0b1.js"><link rel="prefetch" href="/assets/js/55.32a72431.js"><link rel="prefetch" href="/assets/js/56.12689f10.js"><link rel="prefetch" href="/assets/js/57.2863becb.js"><link rel="prefetch" href="/assets/js/58.9decc151.js"><link rel="prefetch" href="/assets/js/59.f1c27378.js"><link rel="prefetch" href="/assets/js/6.9b404325.js"><link rel="prefetch" href="/assets/js/60.9850bad8.js"><link rel="prefetch" href="/assets/js/61.dc0e4558.js"><link rel="prefetch" href="/assets/js/62.92074996.js"><link rel="prefetch" href="/assets/js/63.f7ad59d9.js"><link rel="prefetch" href="/assets/js/64.a95e9b9e.js"><link rel="prefetch" href="/assets/js/65.bec6b166.js"><link rel="prefetch" href="/assets/js/66.249f90fe.js"><link rel="prefetch" href="/assets/js/67.ed5cdf6d.js"><link rel="prefetch" href="/assets/js/68.a97ee492.js"><link rel="prefetch" href="/assets/js/69.b0a1cedf.js"><link rel="prefetch" href="/assets/js/7.ccd64634.js"><link rel="prefetch" href="/assets/js/70.8ec53658.js"><link rel="prefetch" href="/assets/js/71.8aa27851.js"><link rel="prefetch" href="/assets/js/72.deee3dbe.js"><link rel="prefetch" href="/assets/js/73.68ad2d92.js"><link rel="prefetch" href="/assets/js/74.8225834e.js"><link rel="prefetch" href="/assets/js/75.723b5280.js"><link rel="prefetch" href="/assets/js/76.7b830b75.js"><link rel="prefetch" href="/assets/js/77.ebb7e6f4.js"><link rel="prefetch" href="/assets/js/78.ec4683d7.js"><link rel="prefetch" href="/assets/js/79.5812ca18.js"><link rel="prefetch" href="/assets/js/8.b694ab02.js"><link rel="prefetch" href="/assets/js/80.4ed23c8e.js"><link rel="prefetch" href="/assets/js/81.8e9a8b28.js"><link rel="prefetch" href="/assets/js/82.9b3797f6.js"><link rel="prefetch" href="/assets/js/83.56db35f9.js"><link rel="prefetch" href="/assets/js/84.dfd672e3.js"><link rel="prefetch" href="/assets/js/85.4f5c71fa.js"><link rel="prefetch" href="/assets/js/86.71da2c92.js"><link rel="prefetch" href="/assets/js/87.c7fc4158.js"><link rel="prefetch" href="/assets/js/88.d88e29e3.js"><link rel="prefetch" href="/assets/js/89.50626a13.js"><link rel="prefetch" href="/assets/js/9.ea2857d4.js"><link rel="prefetch" href="/assets/js/90.9569a814.js"><link rel="prefetch" href="/assets/js/91.b3fc8641.js"><link rel="prefetch" href="/assets/js/92.90a8e499.js"><link rel="prefetch" href="/assets/js/93.5286e2a8.js"><link rel="prefetch" href="/assets/js/94.33ee75da.js"><link rel="prefetch" href="/assets/js/95.2c4966e0.js"><link rel="prefetch" href="/assets/js/96.ecc711db.js"><link rel="prefetch" href="/assets/js/97.be4ba4f9.js"><link rel="prefetch" href="/assets/js/98.e8a250e6.js"><link rel="prefetch" href="/assets/js/99.2cb509e8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b28fe3e0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="SuperFan" class="logo"> <span class="site-name can-hide">SuperFan</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/resources/website/websites_recom.html" class="nav-link">
+  Resources
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          小试牛刀
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/html&amp;css/form.html" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/notes/js/what_is_js.html" class="nav-link">
+  JavaScript
+</a></li></ul></li><li class="dropdown-item"><h4>
+          渐入佳境
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/es6/es6.html" class="nav-link">
+  ES6
+</a></li><li class="dropdown-subitem"><a href="/notes/sass/about.html" class="nav-link">
+  Sass
+</a></li><li class="dropdown-subitem"><a href="/notes/ts/ts_install.html" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-subitem"><a href="/notes/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></li><li class="dropdown-item"><h4>
+          登堂入室
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/vue/vue.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-subitem"><a href="/notes/react/react_base.html" class="nav-link">
+  React
+</a></li></ul></li><li class="dropdown-item"><h4>
+          锦上添花
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/notes/wx_mini_p/life_cycle.html" class="nav-link">
+  微信小程序
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端进阶" class="mobile-dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          音视频方向
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="nav-link">
+  WebRTC
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端工程化
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/fontendAdvance/pack_base/rollup&amp;webpack.html" class="nav-link">
+  打包基础
+</a></li><li class="dropdown-subitem"><a href="/fontendAdvance/webpack/webpack.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/backend/nodejs/node.html" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/backend/mysql/mysql_note.html" class="nav-link">
+  MySql
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="其他" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/other/git/Git.html" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/other/reg/reg.html" class="nav-link">
+  正则表达式
+</a></li><li class="dropdown-item"><!----> <a href="/other/python/crawler.html" class="nav-link">
+  Python
+</a></li></ul></div></div> <a href="https://github.com/fanwww/myweb" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/fontendAdvance/WebRTC/web_rtc_1.html" class="sidebar-link">getUserMedia 使用</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_2.html" class="sidebar-link">获取音视频设备列表</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_3.html" class="sidebar-link">利用浏览器实现拍照功能</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_4.html" class="sidebar-link">视频的录制</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_5.html" class="sidebar-link">桌面抓取</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_6.html" class="sidebar-link">你不知道SDP!</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_7.html" aria-current="page" class="active sidebar-link">媒体协商</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#创建连接和信令" class="sidebar-link">创建连接和信令</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#webrtc-中媒体协商的作用" class="sidebar-link">WebRTC 中媒体协商的作用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#rtcpeerconnection" class="sidebar-link">RTCPeerConnection</a></li></ul></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#媒体协商的过程" class="sidebar-link">媒体协商的过程</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#媒体协商的代码实现" class="sidebar-link">媒体协商的代码实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#_1-呼叫方创建-offer" class="sidebar-link">1. 呼叫方创建 Offer</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#_2-被呼叫方收到-offer" class="sidebar-link">2. 被呼叫方收到 Offer</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#_3-被呼叫方创建-answer" class="sidebar-link">3. 被呼叫方创建 Answer</a></li><li class="sidebar-sub-header"><a href="/fontendAdvance/WebRTC/web_rtc_7.html#_4-呼叫方收到-answer" class="sidebar-link">4. 呼叫方收到 Answer</a></li></ul></li></ul></li><li><a href="/fontendAdvance/WebRTC/web_rtc_8.html" class="sidebar-link">如何建立连接</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_9.html" class="sidebar-link">简单的信令服务搭建</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_10.html" class="sidebar-link">文本聊天的实现</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_11.html" class="sidebar-link">实时传输文件</a></li><li><a href="/fontendAdvance/WebRTC/web_rtc_12.html" class="sidebar-link">统计信息</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webrtc-七-媒体协商"><a href="#webrtc-七-媒体协商" class="header-anchor">#</a> WebRTC（七）媒体协商</h1> <h3 id="媒体协商"><a href="#媒体协商" class="header-anchor">#</a> 媒体协商</h3> <h2 id="创建连接和信令"><a href="#创建连接和信令" class="header-anchor">#</a> 创建连接和信令</h2> <ul><li><strong>创建连接</strong>，指的是创建 RTCPeerConnection，它负责端与端之间彼此建立 P2P 连接。在后面 RTCPeerConnection 一节中，我们还会对其做进一步的介绍。</li> <li><strong>信令</strong>，指的是客户端通过信令服务器交换 SDP 信息。</li></ul> <h2 id="webrtc-中媒体协商的作用"><a href="#webrtc-中媒体协商的作用" class="header-anchor">#</a> WebRTC 中媒体协商的作用</h2> <p><strong>媒体协商的作用</strong>就是让<strong>双方</strong>找到<strong>共同支持的媒体能力</strong>，如双方都支持的编解码器，从而最终实现彼此之间的音视频通信。</p> <ul><li>首先，通信双方将它们各自的媒体信息，如编解码器、媒体流的 SSRC、传输协议、IP 地址和端口等，按 SDP 格式整理好。</li> <li>然后，通信双方通过信令服务器交换 SDP 信息，并待彼此拿到对方的 SDP 信息后，找出它们共同支持的媒体能力。</li> <li>最后，双方按照协商好的媒体能力开始音视频通信</li></ul> <h3 id="rtcpeerconnection"><a href="#rtcpeerconnection" class="header-anchor">#</a> RTCPeerConnection</h3> <blockquote><p><strong>RTCPeerConnection</strong> 类， 顾名思义，它表示的就是端与端之间建立的<strong>连接</strong>, <strong>端到端之间的媒体协商，就是基于 RTCPeerConnection 对象实现的</strong>。</p></blockquote> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">var</span> pcConfig <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> pc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RTCPeerConnection</span><span class="token punctuation">(</span>pcConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>在 JavaScript 下创建 RTCPeerConnection 对象非常简单，如上所述，只要通过 new 关键字创建即可。</p> <p>在创建 RTCPeerConnection 对象时，还可以给它传一个参数 pcConfig，该参数的结构非常复杂，这里我们先将其设置为 null</p> <h2 id="媒体协商的过程"><a href="#媒体协商的过程" class="header-anchor">#</a> 媒体协商的过程</h2> <blockquote><p>在通讯双方都创建好 <strong>RTCPeerConnection</strong> 对象后，它们就可以开始进行媒体协商了。不过在进行媒体协商之前，有两个重要的概念，即 <strong>Offer</strong> 与 <strong>Answer</strong> ，你必须要弄清楚。</p></blockquote> <p><code>Offer</code> 与 <code>Answer</code> 是什么呢？对于 1 对 1 通信的双方来说，我们称首先发送媒体协商消息的一方为呼叫方，而另一方则为被呼叫方。</p> <p><strong>Offer</strong>，在双方通讯时，呼叫方发送的 SDP 消息称为 Offer。</p> <p><strong>Answer</strong>，在双方通讯时，被呼叫方发送的 SDP 消息称为 Answer。</p> <ul><li><strong>首先</strong>，呼叫方创建 Offer 类型的 SDP 消息。创建完成后，调用 setLocalDescriptoin 方法将该 Offer 保存到本地 Local 域，然后通过信令将 Offer 发送给被呼叫方。</li> <li>被呼叫方收到 Offer 类型的 SDP 消息后，调用 setRemoteDescription 方法将 Offer 保存到它的 Remote 域。作为应答，被呼叫方要创建 Answer 类型的 SDP 消息，Answer 消息创建成功后，再调用 setLocalDescription 方法将 Answer 类型的 SDP 消息保存到本地的 Local 域。最后，被呼叫方将 Answer 消息通过信令发送给呼叫方。至此，被呼叫方的工作就完部完成了。</li> <li>接下来是呼叫方的收尾工作，呼叫方收到 Answer 类型的消息后，调用 RTCPeerConnecton 对象的 setRemoteDescription 方法，将 Answer 保存到它的 Remote 域。</li> <li>至此，整个媒体协商过程处理完毕。</li></ul> <h2 id="媒体协商的代码实现"><a href="#媒体协商的代码实现" class="header-anchor">#</a> 媒体协商的代码实现</h2> <p>了解了 WebRTC 的媒体协商过程之后，我们再看一下如何使用 JavaScript 代码来实现这一功能。浏览器提供了几个非常方便的 API，这些 API 是对底层 WebRTC API 的封装。如下所示：</p> <p><strong>createOffer</strong> ，创建 Offer；</p> <p><strong>createAnswer</strong>，创建 Answer；</p> <p><strong>setLocalDescription</strong>，设置本地 SDP 信息；</p> <p><strong>setRemoteDescription</strong>，设置远端的 SDP 信息。</p> <h3 id="_1-呼叫方创建-offer"><a href="#_1-呼叫方创建-offer" class="header-anchor">#</a> 1. 呼叫方创建 Offer</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">doCall</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Sending offer to peer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+pc<span class="token punctuation">.</span><span class="token function">createOffer</span><span class="token punctuation">(</span>setLocalAndSendMessage<span class="token punctuation">,</span> handleCreateOfferError<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如果 createOffer 函数调用成功的话，浏览器会回调我们设置的 setLocalAndSendMessage 方法，你可以在 setLocalAndSendMessage 方法里获取到 RTCSessionDescription 类型的 SDP 信息；如果出错则会回调 handleCreateOfferError 方法。</p> <p>最终，在 setLocalAndSendMessage 回调方法中，通过 setLocalDescription() 方法将本地 SDP 描述信息设置到 WebRTC 的 Local 域。然后通过信令通道将此会话描述发送给被呼叫方。代码如下所示：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">setLocalAndSendMessage</span><span class="token punctuation">(</span><span class="token parameter">sessionDescription</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+pc<span class="token punctuation">.</span><span class="token function">setLocalDescription</span><span class="token punctuation">(</span>sessionDescription<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">sendMessage</span><span class="token punctuation">(</span>sessionDescription<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_2-被呼叫方收到-offer"><a href="#_2-被呼叫方收到-offer" class="header-anchor">#</a> 2. 被呼叫方收到 Offer</h3> <p>被呼叫方收到 Offer 后，调用 setRemoteDescription 方法设置呼叫方发送给它的 Offer 作为远端描述。代码如下：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'offer'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+pc<span class="token punctuation">.</span><span class="token function">setRemoteDescription</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RTCSessionDescription</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">doAnswer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token operator">...</span><span class="token punctuation">.</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="_3-被呼叫方创建-answer"><a href="#_3-被呼叫方创建-answer" class="header-anchor">#</a> 3. 被呼叫方创建 Answer</h3> <p>然后，被呼叫方调用 RTCPeerConnection 对象的 createAnswer 方法，它会生成一个与远程会话兼容的本地会话，并最终将该会话描述发送给呼叫方。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">doAnswer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+pc<span class="token punctuation">.</span><span class="token function">createAnswer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+
+setLocalAndSendMessage<span class="token punctuation">,</span>
+
+onCreateSessionDescriptionError
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_4-呼叫方收到-answer"><a href="#_4-呼叫方收到-answer" class="header-anchor">#</a> 4. 呼叫方收到 Answer</h3> <p>当呼叫方得到被呼叫方的会话描述，即 SDP 时，调用 setRemoteDescription 方法，将收到的会话描述设置为一个远程会话。代码如下：</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'answer'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+pc<span class="token punctuation">.</span><span class="token function">setRemoteDescription</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RTCSessionDescription</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token operator">...</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token operator">...</span><span class="token punctuation">.</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p><strong>需要特别注意的是，通信双方链路的建立是在设置本地媒体能力，即调用 setLocalDescription 函数之后才进行的。</strong></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2/13/2023, 9:16:34 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/fontendAdvance/WebRTC/web_rtc_6.html" class="prev">
+        你不知道SDP!
+      </a></span> <span class="next"><a href="/fontendAdvance/WebRTC/web_rtc_8.html">
+        如何建立连接
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div id="goTop" class="hide-cat" data-v-bf92849a></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:270px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="270" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:270px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.13992e3b.js" defer></script><script src="/assets/js/3.388af1c5.js" defer></script><script src="/assets/js/32.5bbb5078.js" defer></script>
+  </body>
+</html>
