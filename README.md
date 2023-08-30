@@ -1,3 +1,2 @@
 # fanwww.github.io
-myIndex
-For my record
+fan_blog
